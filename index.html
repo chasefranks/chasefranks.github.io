@@ -1,0 +1,70 @@
+---
+layout: default
+---
+<div class="row">
+
+  <div class="col-sm-8 blog-main">
+
+    {% for post in paginator.posts %}
+
+      <div class="blog-post">
+        <h2 class="blog-post-title">{{ post.title }}</h2>
+        <p class="blog-post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
+
+        {{ post.intro | markdownify }}
+
+        <a href="{{ post.url }}">Read More...</a>
+      </div><!-- /.blog-post -->
+
+    {% endfor %}
+
+    <!-- add pager -->
+    <nav>
+      <ul class="pager">
+        {% if paginator.previous_page %}
+          <li><a href="{{ paginator.previous_page_path }}">Previous</a></li>
+        {% endif %}
+        {% if paginator.next_page %}
+          <li><a href="{{ paginator.next_page_path }}">Next</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
+  </div><!-- /.blog-main -->
+
+  <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+    <div class="sidebar-module sidebar-module-inset">
+      <h4>About Me</h4>
+      <span><img class="img-circle" src="/images/profile.jpg" alt="Chase Google Profile Pic" /></span>
+      <p>
+        I am a software developer specializing in Java applications, notably the Spring framework.
+      </p>
+    </div>
+    <div class="sidebar-module">
+      <!-- nothing to archive yet!
+      <h4>Archives</h4>
+      <ol class="list-unstyled">
+        <li><a href="#">March 2014</a></li>
+        <li><a href="#">February 2014</a></li>
+        <li><a href="#">January 2014</a></li>
+        <li><a href="#">December 2013</a></li>
+        <li><a href="#">November 2013</a></li>
+        <li><a href="#">October 2013</a></li>
+        <li><a href="#">September 2013</a></li>
+        <li><a href="#">August 2013</a></li>
+        <li><a href="#">July 2013</a></li>
+        <li><a href="#">June 2013</a></li>
+        <li><a href="#">May 2013</a></li>
+        <li><a href="#">April 2013</a></li>
+      </ol> -->
+    </div>
+    <div class="sidebar-module">
+      <h4>Find me</h4>
+      <ol class="list-unstyled">
+        <li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>
+        <li><a href="https://plus.google.com/u/0/+ChaseFranks/posts">Google+</a></li>
+      </ol>
+    </div>
+  </div><!-- /.blog-sidebar -->
+
+</div><!-- /.row -->
