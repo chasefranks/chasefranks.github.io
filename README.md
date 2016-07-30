@@ -9,7 +9,15 @@ It is a site built with [Jekyll](https://jekyllrb.com) and uses Bootstrap CSS fo
 
 ## Getting Started
 
-Feel free to clone this repo to try out Jekyll and see a working example, or fork it to start your own blog. Assuming you have [Jekyll installed already](https://jekyllrb.com/docs/installation/), getting this site built and running on a local test server is as easy as
+Feel free to clone this repo to try out Jekyll and see a working example, or fork it to start your own blog. 
+
+To get up and running with Jekyll, follow the instructions here [installing Jekyll](https://jekyllrb.com/docs/installation/). You will also need a Ruby gem called Bundler
+
+```bash
+gem install bundler
+```
+
+After installing Jekyll and Bundler, getting this site built and running on a local test server is as easy as
 
 ```bash
 cd chasefranks.github.io
