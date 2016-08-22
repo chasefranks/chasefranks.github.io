@@ -4,7 +4,7 @@
 
 My personal blog
 
-[https://github.io/chasefranks](https://github.io/chasefranks)
+[http://chasefranks.github.io](http://chasefranks.github.io)
 
 built with [Jekyll](https://jekyllrb.com), and uses [Bootstrap](http://getbootstrap.com/) for the look and feel.
 
