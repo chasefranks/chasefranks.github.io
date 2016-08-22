@@ -1,15 +1,16 @@
 # My Jekyll Blog
 
 ## Description
-This repo holds the contents of my blog at
+
+My personal blog
 
 [https://github.io/chasefranks](https://github.io/chasefranks)
 
-It is a site built with [Jekyll](https://jekyllrb.com) and uses Bootstrap CSS for the look and feel.
+built with [Jekyll](https://jekyllrb.com), and uses [Bootstrap](http://getbootstrap.com/) for the look and feel.
 
 ## Getting Started
 
-Feel free to clone this repo to try out Jekyll and see a working example, or fork it to start your own blog. 
+Feel free to clone this repo to try out Jekyll and see a working example, or fork it to start your own blog.
 
 To get up and running with Jekyll, follow the instructions here [installing Jekyll](https://jekyllrb.com/docs/installation/). You will also need a Ruby gem called Bundler
 
@@ -17,7 +18,7 @@ To get up and running with Jekyll, follow the instructions here [installing Jeky
 gem install bundler
 ```
 
-After installing Jekyll and Bundler, getting this site built and running on a local test server is as easy as
+After installing Jekyll and Bundler, getting this site built and running on a local test server is as easy as running
 
 ```bash
 cd chasefranks.github.io
@@ -40,6 +41,6 @@ Adding blog posts is simple. In the _posts/ folder, you will see the posts I hav
 
 If there are any issues with this repo or you have any questions, feel free to reach out.
 
-[Gmail]()
+[clf112358@gmail.com](mailto:clf112358@gmail.com)
 
 I'm still learning about Jekyll as I go, so I'll try my best to answer.
