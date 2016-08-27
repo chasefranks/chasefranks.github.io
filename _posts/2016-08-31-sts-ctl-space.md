@@ -4,8 +4,8 @@ title:  "STS: Let Ctrl+Space Simplify Your Life"
 date:   2016-08-31
 categories: workflow tips sts
 intro: >
-  Spring Tool Suite offers the ability to quickly inject frequently used code snippets into your code. The pattern is basically: type the first few letters of what you're trying to do, hit ```Ctrl+Space```, and what you want magically appears. We discuss a few of the built in patterns STS offers, how to look up others, and how to create your own.
-published: true
+  Spring Tool Suite offers the ability to quickly inject frequently used snippets into your code. The pattern is basically: type the first few letters of what you're trying to do, hit ```Ctrl+Space```, and what you want magically appears. We discuss a few of the built in patterns STS offers, how to look up others, and how to create your own.
+published: false
 permalink: /workflows/sts/templates
 ---
 {{page.intro}}
@@ -49,11 +49,11 @@ The easiest way is to just hit Ctrl+Space on a blank line
 
 ![showing all code templates](/images/all-code-templates.png)
 
-then start typing something resembling what you want to see if it semantically completes. For example, say I'm in a ```@RestController``` and want to rack out a POST handler. If I start typing post, I something that might help me
+then start typing something resembling what you want to see if it semantically completes. For example, say I'm in a ```@RestController``` and want to rack out a POST handler. If I start typing post, I see something that might help me
 
 ![post code template](/images/post-code-template.png)
 
-If I hit enter this is what I get
+If I hit enter, I get
 
 ```java
 @RestController
