@@ -35,7 +35,7 @@ jekyll serve
 
 ### Adding Posts
 
-Adding blog posts is simple. In the _posts/ folder, you will see the posts I have created. Just copy the 2016-07-29-new-post.md, change the date to the post date, set ```published: true```, add your content, and voila! the post should magically appear.
+Adding blog posts is simple. In the _posts/ folder, you will see the posts I have created. Just copy the yyyy-mm-dd-new-post.md, change the date to the post date, set ```published: true```, add your content, and voila! the post should magically appear.
 
 ## Contact
 

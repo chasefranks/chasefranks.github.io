@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "A new post"
-date:   2016-07-29
+date:   yyyy-mm-dd
 categories: test
 intro: An example post
 published: false
