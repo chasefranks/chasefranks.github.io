@@ -5,7 +5,7 @@ date:   2016-08-31
 categories: workflow tips sts
 intro: >
   Spring Tool Suite offers the ability to quickly inject frequently used snippets into your code. The pattern is basically: type the first few letters of what you're trying to do, hit ```Ctrl+Space```, and what you want magically appears. We discuss a few of the built in patterns STS offers, how to look up others, and how to create your own.
-published: false
+published: true
 permalink: /workflows/sts/templates
 ---
 {{page.intro}}
