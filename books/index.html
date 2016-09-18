@@ -4,51 +4,21 @@ title: Book Reviews
 ---
 <div class="row">
   <div class="col-sm-8 blog-main">
-
-    <h1>{{page.title}}</h1>
-
-    <!-- repetive structure here -->
+    {% for review in site.book_reviews %}
     <div class="blog-post">
       <div class="row">
         <div class="col-sm-8">
-          <h2 class="blog-post-title">Just Hibernate</h2>
-          <p class="blog-post-meta">September 11, 2016</p>
-          <p>Review of Just Hibernate by Madhusudhan Konda</p>
-          <a href="/books/reviews/just-hibernate">Read the review...</a>
+            <h2 class="blog-post-title">{{ review.title }}</h2>
+            <p class="blog-post-meta">by {{ review.author }}</p>
+            <p class="blog-post-meta">{{ review.date | date: "%b %-d, %Y" }}</p>
+            {{ review.intro | markdownify }}
+            <a href="/books/reviews/just-hibernate">Read the review...</a>
         </div>
         <div class="col-sm-4">
-          <iframe type="text/html" height="250" frameborder="0" allowfullscreen style="max-width:100%" src="https://read.amazon.com/kp/card?asin=B00KSMU3JS&preview=inline&linkCode=kpe&ref_=cm_sw_r_kb_dp_oGH1xbM2BB8T6" ></iframe>
+          <img src="{{ review.image-url }}" alt="" style="height: 250px" />
         </div>
       </div>
-    </div><!-- /.blog-post -->
-
-    <div class="blog-post">
-      <div class="row">
-        <div class="col-sm-8">
-          <h2 class="blog-post-title">Spring Boot in Action</h2>
-          <p class="blog-post-meta">September 11, 2016</p>
-          <p>Review of Spring Boot in Action by Craig Walls</p>
-          <a href="/books/reviews/spring-boot-in-action">Read the review...</a>
-        </div>
-        <div class="col-sm-4">
-          <img src="https://images-na.ssl-images-amazon.com/images/I/51XDLVLQOOL._SX396_BO1,204,203,200_.jpg" alt="" style="height: 250px" />
-        </div>
-      </div>
-    </div><!-- /.blog-post -->
-
-    <div class="blog-post">
-      <div class="row">
-        <div class="col-sm-8">
-          <h2 class="blog-post-title">Spring in Action</h2>
-          <p class="blog-post-meta">September 11, 2016</p>
-          <p>Review of Spring in Action by Craig Walls</p>
-          <a href="/books/reviews/spring-in-action">Read the review...</a>
-        </div>
-        <div class="col-sm-4">
-          <img src="https://images-na.ssl-images-amazon.com/images/I/51gHy16h5TL._SX397_BO1,204,203,200_.jpg" alt="" style="height: 250px"/>
-        </div>
-      </div>
-    </div><!-- /.blog-post -->
-
+    </div>
+    {% endfor %}
   </div>
 </div>
