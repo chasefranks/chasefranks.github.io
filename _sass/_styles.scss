@@ -153,7 +153,6 @@ h6, .h6 {
 /*
  * Blog posts
  */
-
 .blog-post {
   margin-bottom: 60px;
 }
@@ -165,7 +164,10 @@ h6, .h6 {
   margin-bottom: 20px;
   color: #999;
 }
-
+.blog-post-thumbnail {
+  float: right;
+  height: 250px;
+}
 
 /*
  * Footer

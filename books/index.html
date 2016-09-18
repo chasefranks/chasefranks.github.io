@@ -12,10 +12,10 @@ title: Book Reviews
             <p class="blog-post-meta">by {{ review.author }}</p>
             <p class="blog-post-meta">{{ review.date | date: "%b %-d, %Y" }}</p>
             {{ review.intro | markdownify }}
-            <a href="/books/reviews/just-hibernate">Read the review...</a>
+            <a href="{{ review.permalink }}">Read the review...</a>
         </div>
         <div class="col-sm-4">
-          <img src="{{ review.image-url }}" alt="" style="height: 250px" />
+          <img class="blog-post-thumbnail" src="{{ review.image-url }}" alt="" />
         </div>
       </div>
     </div>
