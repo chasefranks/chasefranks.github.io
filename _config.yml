@@ -14,6 +14,11 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://chasefranks.github.io" # the base hostname & protocol for your site
 github_username:  chasefranks
 
+# other collections in addition to posts
+collections:
+  book_reviews:
+    output: true
+
 # enable pagination
 gems: [jekyll-paginate]
 paginate: 5

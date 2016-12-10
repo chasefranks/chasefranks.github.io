@@ -1,0 +1,24 @@
+---
+layout: default
+title: Book Reviews
+---
+<div class="row">
+  <div class="col-sm-8 blog-main">
+    {% for review in site.book_reviews %}
+    <div class="blog-post">
+      <div class="row">
+        <div class="col-sm-8">
+            <h2 class="blog-post-title">{{ review.title }}</h2>
+            <p class="blog-post-meta">by {{ review.author }}</p>
+            <p class="blog-post-meta">{{ review.date | date: "%b %-d, %Y" }}</p>
+            {{ review.intro | markdownify }}
+            <a href="{{ review.permalink }}">Read the review...</a>
+        </div>
+        <div class="col-sm-4">
+          <img class="blog-post-thumbnail" src="{{ review.image-url }}" alt="" />
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
