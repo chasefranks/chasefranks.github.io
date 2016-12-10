@@ -10,7 +10,7 @@ intro: >
   I found this book is true to its title, and is a great book to get up and running with Hibernate in
   a short amount of time.
 image-url: https://images-na.ssl-images-amazon.com/images/I/51thXe9K4EL._SX379_BO1,204,203,200_.jpg
-published: true
+published: false
 permalink: /books/reviews/just-hibernate
 ---
 {{page.intro}}
