@@ -27,7 +27,7 @@ npm install -g bower
 
 Check that Bower is installed by running ```bower --version```. The latest version as of this writing is 1.8.0.
 
-Ok, now let's get to the fun part. I want to build a site that shows off charts from a library called [Chart.js](www.chartjs.org). I want to use the following static assets:
+Ok, now let's get to the fun part. I want to build a site that shows off charts from a library called [Chart.js](http://www.chartjs.org). I want to use the following static assets:
 
 * the main chart.js script
 * Bootstrap for the css classes/look feel of the site
