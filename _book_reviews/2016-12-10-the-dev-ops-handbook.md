@@ -31,7 +31,7 @@ While this is a great book and describes what is to me, my ideal workplace, my e
 
 So let's dive in to the book.
 
-## The Three Ways
+## Flow
 
 This section starts with a little history and background on agile, and shows how agile has progressed into the DevOps movement motivated by nothing less than the revolution in manufacturing processes that occurred in the 80s. It discusses the Lean manufacturing process, the Toyota Manufacturing System, and from this context identifies the fundamental concept of a *value stream*.
 
@@ -45,6 +45,53 @@ The idea is codified in something called a *user story*, which is a short descri
 
 The idea of the user story is that is should be deliverable increment of work, that can get into the customer's hands (i.e. in production) as quickly as possible, ideally at the end of a two week sprint. The customer can provide quick feedback that informs additional user stories.
 
-Most agile teams use a Kanban board to track progress on user stories and the sprint.
+Most agile teams use a Kanban board to track progress on user stories and the sprint. You may have seen something like this if you've ever walked into an IT office
 
-The user stories progress from left to right as they go through the stages of development.
+![kanban board...yes those are sticky notes](/images/kanban_board.jpg)
+
+Yes...those are sticky notes. Each sticky note represents a user story, i.e. a single piece of functionality. The user stories progress from left to right as they go through the stages of development. That's all that's going on here.
+
+## Feedback
+
+Part I discussed the idea of *flow*, which from the perspective of most developers, is the forward movement of user stories from development into production. One of the hallmark themes of DevOps is to integrate the production environment into development from the very beginning, through techniques such as Continous Deployment.
+
+The second part of this book deals with Feedback. After we've enabled fast and continuous flow of value into production, we need metrics and telemetry at every level of our application and deployment pipeline:
+
+![flow and feedback](/images/flow_and_feedback.png)
+
+I think this quote from the book sets the stage for this topic (made at Etsy, a recurring case study for many examples in this book)
+
+> "If engineering at Etsy has a religion, it's the church of graphs."
+
+The concrete implementations of feedback include:
+
+* telemetry (i.e. can I insert a single line of code to track successful logins...and have a graph displayed on a webpage!)
+* user research (what are users doing on the site, when is it heavily used)
+* logging
+
+### An Aside on Logging
+
+Believe it or not, this last one, logging, is not to be taken for granted. Some developers can have the mentality that debugging can be done through thought experiments, and take pride in their ability to troubleshoot *mentally* without logging. While impressive, it's usually a red flag to me that there is a single person who is responsible for sort of being the hero for the team. This approach just doesn't scale. People, albeit very smart ones, get tired. Eyes get blurry. People get fed up and quit, taking their knowledge with them. If this is all you're relying on, it's a mistake.
+
+I've also seen logging being done poorly, where the log statements are not informative. The best you can say is that they correlate in time with the error, and troubleshooting means recognizing the "signature" of various errors in the log file. These signatures go into a tribal history, which again signals that there is stickiness on one person to troubleshoot all issues, or at least a reliance on "time served" instead of technical competency to solve issues.
+
+### Back to the Review...
+Developers should be enabled to easily implement telemetry in their code. Some of the tools this book mentions are:
+
+* JMX
+* statsD (another tool developed by Etsy, with developer ease of use front and center)
+* collectd
+* Graphite
+
+I can't say I know much about these tools, but I'm enticed by this book to take a look and play around with them. Maybe I'll do a blog post on one of them.
+
+One tool I *would* like to add to the discussion is the Spring Boot [Actuator](http://docs.spring.io/spring-boot/docs/1.4.2.RELEASE/reference/htmlsingle/#production-ready) project, which exposes metrics from within Spring Boot applications via a standard REST API.
+
+### Publishing or Radiating Metrics
+The next step after collecting metrics, logging, and implementing telemetry, is publishing (the book calls it *radiating*) the metrics in public places for everyone to see. I really like how the book makes this point, through an example with LinkedIn. Real production metrics are prominently displayed in their engineering offices, in plain site of customers, visitors, etc. You can only imagine what this says about the culture.
+
+Radiating this information not only means making the data for feedback easily available for developers, but displaying the data in a meaningful way. One example the book gives is displaying a vertical line over the time each production deployment is made for any time-based graph.
+
+To see how important this is, imagine if no metrics, logging, etc are ever collected. When things go wrong, how do you think people will behave without knowledge and a scientific approach to problem solving. You guessed it! It's not very nice, and anyone who has worked in IT (and probably many other professions) for any length of time has to manage this tendency of people. However, because of the nature of software, you can end up with a lot of people who are on the hook, who don't know the first thing about *what* actually happened.
+
+## Continual Learning and Experimentation
