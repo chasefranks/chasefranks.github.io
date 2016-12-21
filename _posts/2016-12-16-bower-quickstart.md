@@ -10,6 +10,18 @@ intro: >
 ---
 {{page.intro}}
 
+
+
+## Source code
+
+If you just want to jump ahead and see the complete example, the source code for this tutorial is hosted on [Github](https://github.com/chasefranks/bower_grunt_demo.git). Just clone the repository and checkout the first commit
+
+{% highlight bash %}
+git clone https://github.com/chasefranks/bower_grunt_demo.git
+cd bower_grunt_demo
+git checkout 5675cfc
+{% endhighlight %}
+
 ## A Simple Example
 
 Let's start with a simple example to see what Bower does. First, you need NodeJS on your system, so head on over to [nodejs.org](https://nodejs.org) and install the version of node for the platform you're using. I'm on Linux, but it really shouldn't matter. To check that it's installed, running ```node --version```. On my system, I get
