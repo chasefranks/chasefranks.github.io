@@ -95,7 +95,7 @@ module.exports = function(grunt) {
 }
 {% endhighlight %}
 
-If you know a little about how Node modules and the NodeJS function ```require()``` works, you can probably guess that this file get's required somewhere, exports a configuration function (the function we're defining), and gets invoked.
+If you know a little about how Node modules and the NodeJS function ```require()``` works, you can probably guess that this file gets required somewhere, exports a configuration function (the function we're defining), and gets invoked passing in an object referenced by the grunt parameter.
 
 Configuring the plugins is done by invoking ```grunt.initConfig(config)```, where config is a javascript object. This object needs to have a key for each task. For example, to configure the clean plugin, the config object would start with
 
@@ -139,7 +139,7 @@ module.exports = function(grunt) {
 }
 {% endhighlight %}
 
-If you understand this, you know everything you need to know to use grunt. Other plugins will have more involved configuration, but the pattern is the same. We configure the task by passing a configuration object keyed under the task name, abd register the task with ```loadNpmTasks()```. Try it out by running ```grunt clean```. You should see the dist directory is simply deleted.
+If you understand this, you know everything you need to know to use grunt. Other plugins will have more involved configuration, but the pattern is the same. We configure the task by passing a configuration object keyed under the task name, and register the task with ```loadNpmTasks()```. Try it out by running through the steps above and running ```grunt clean```. You should see the dist directory is simply deleted.
 
 # Setting up our Project with Grunt
 
