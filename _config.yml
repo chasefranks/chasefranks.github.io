@@ -18,6 +18,8 @@ github_username:  chasefranks
 collections:
   book_reviews:
     output: true
+  samples:
+    output: true
 
 # enable pagination
 gems: [jekyll-paginate]

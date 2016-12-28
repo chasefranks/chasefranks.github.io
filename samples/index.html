@@ -1,0 +1,27 @@
+---
+layout: page
+title: Code Samples
+---
+<p>
+  Here is a collection of code samples.
+</p>
+
+{% for sample in site.samples %}
+<div class="blog-post">
+  <div class="row">
+    <div class="col-sm-8">
+        <h2 class="blog-post-title">{{ sample.title }}</h2>
+        {% if sample.gist_tag %}
+        <p>
+          Github Gist: {{ sample.gist_tag }}
+        </p>
+        {% endif %}
+        <p>
+          Github Repo: {{ sample.github_link }}
+        </p>
+        {{ sample.summary | markdownify }}
+        <a href="{{ sample.permalink }}">View Sample</a>
+    </div>
+  </div>
+</div>
+{% endfor %}
