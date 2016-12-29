@@ -5,6 +5,7 @@
 
 /*
  * using color palatte from http://www.w3schools.com/colors/colors_palettes.asp
+ * change the values here instead of in each css class
  */
 $footer-bg-color: #eaece5;
 $dark-accent: #b2c2bf;
@@ -150,6 +151,12 @@ h6, .h6 {
   background-color: $light-accent;
 }
 
+/* Styling for Tags */
+.tag-label {
+  background-color: $header-bg-color;
+  margin-left: 5px;
+  margin-right: 5px;
+}
 
 /*
  * Blog posts
