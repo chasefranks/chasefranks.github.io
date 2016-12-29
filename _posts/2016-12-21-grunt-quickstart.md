@@ -67,7 +67,7 @@ grunt-cli v1.2.0
 
 What you actually installed was the grunt-cli, and invoking ```grunt``` does nothing more than delegate to a locally installed version of grunt in your project directory.
 
-What does this mean? This means that grunt must be installed locally by running
+What does this mean? This means that grunt must be installed locally into each web project by running
 
 {% highlight bash %}
 npm install --save-dev grunt
@@ -85,9 +85,9 @@ inside of your web project folder. This installs grunt to the ```node_modules/``
 }
 {% endhighlight %}
 
-into the node_modules directory.
+into the node_modules directory. Your entire project can be reassembled from the package.json. For this reason, the package.json is committed to the git repository, and the ```node_modules/``` directory is '.gitignored'.
 
-Ok, now each task corresponds to a plugin, each plugin is installed with npm and saved to the package.json. Let's talk about configuration. The last and most important ingredient for grunt to work is the ```Gruntfile.js``` file. This file starts with a wrapper
+Ok, now each task corresponds to a plugin, and each plugin is installed with npm and saved to the package.json. Let's talk about configuration. The last and most important ingredient for grunt to work is the ```Gruntfile.js``` file. This file starts with a wrapper
 
 {% highlight javascript %}
 module.exports = function(grunt) {
@@ -95,7 +95,7 @@ module.exports = function(grunt) {
 }
 {% endhighlight %}
 
-If you know a little about how Node modules and the NodeJS function ```require()``` works, you can probably guess that this file gets required somewhere, exports a configuration function (the function we're defining), and gets invoked passing in an object referenced by the grunt parameter.
+If you know a little about how Node modules and the NodeJS function ```require()``` works, you can probably guess that this file gets required somewhere, exports a configuration function (the function we're defining), which then gets invoked, passing in an object referenced by the grunt parameter.
 
 Configuring the plugins is done by invoking ```grunt.initConfig(config)```, where config is a javascript object. This object needs to have a key for each task. For example, to configure the clean plugin, the config object would start with
 
@@ -139,13 +139,22 @@ module.exports = function(grunt) {
 }
 {% endhighlight %}
 
-If you understand this, you know everything you need to know to use grunt. Other plugins will have more involved configuration, but the pattern is the same. We configure the task by passing a configuration object keyed under the task name, and register the task with ```loadNpmTasks()```. Try it out by running through the steps above and running ```grunt clean```. You should see the dist directory is simply deleted.
+Other plugins will have more involved configuration, but the pattern is the same:
+
+1. Find the plugin you need from [Grunt Plugins](http://gruntjs.com/plugins) site.
+2. Install it with ```npm install --save-dev <plugin>```.
+3. Pass configuration from the docs to the ```grunt.initConfig()``` method by adding a key for your task.
+4. Load the task with ```grunt.loadNpmTasks()```.
+
+If you understand this, you know everything you need to know to use grunt.
+
+Try it out by running through the steps above and running ```grunt clean```. You should see the dist directory is simply deleted.
 
 # Setting up our Project with Grunt
 
-If you already installed grunt, great. If not go ahead and run ```npm install -g grunt```.
+Now let's get started. If you followed the steps above to install grunt, you're already ahead. If not go ahead and run ```npm install -g grunt```.
 
-From the project directory, let's get a basic package.json started to save our node dependencies. Run
+Open a terminal from the project directory, and let's get a basic package.json started to save our node dependencies. Run
 
 {% highlight bash %}
 npm init
@@ -188,3 +197,77 @@ Remember that we want to be able to have our bootstrap.css, .js, and charts.js a
 The idea is that generally, we will have a *lot* of bower components. We want to control these (and their versions) only through the bower.json file, and know that our changes will be dynamically inserted. This is a level of abstraction we're introducing. Just like the pom.xml file controls the dependencies for a java project, the bower.json controls the static asset dependencies for a web project. We know that if we change the pom.xml, everything downstream in the build process will reflect that change. Similarly, everything in our website is sort of controlled by the bower.json.
 
 ![bower flow](/images/bower_flow.png)
+
+This is why we need something like bower and a task like wiredep.
+
+The plugin we need is called [grunt-wiredep](https://www.npmjs.com/package/grunt-wiredep). We install it with
+
+{% highlight bash %}
+npm install --save-dev grunt-wiredep
+{% endhighlight %}
+
+The documentation should be easy to follow, but sometimes the simplicity gets lost. In our index.html, we have
+
+{% highlight html %}
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+<script src="bower_components/jquery/dist/jquery.js" charset="utf-8"></script>
+<script src="bower_components/chart.js/dist/Chart.js" charset="utf-8"></script>
+{% endhighlight %}
+
+and we want those to be automatically generated when we run our ```wiredep``` task. All we do is replace the explicit tags with html comments
+
+{% highlight html %}
+<!-- bower:js -->
+<!-- endbower -->
+{% endhighlight %}
+
+for our javascript assets, and
+
+{% highlight html %}
+<!-- bower:css -->
+<!-- endbower -->
+{% endhighlight %}
+
+for our bootstrap css, or any other css we link in through bower.
+
+Next, lastly we need to configure the wiredep task, which essentially means telling wiredep which files to scan for the placeholder comments. Change the Gruntfile.js to look like this:
+
+{% highlight javascript %}
+module.exports = function(grunt) {
+  // grunt configuration goes here
+  grunt.initConfig({
+    // tasks go in here, for example...the first one will be wiredep
+    wiredep: {
+      task: {
+        src: [ // list of files to inject bower dependencies into
+          'index.html'
+        ]
+      }
+    }
+  });
+
+  grunt.loadNpmTasks('grunt-wiredep');
+}
+
+{% endhighlight %}
+
+Lastly, try it out by running ```grunt wiredep``` in a terminal.
+
+You should notice that the javascript .js files get wired in, but there's a problem with the Bootstrap css file. Turns out this is a known issue that you can read about [here](http://blog.getbootstrap.com/2015/06/15/bootstrap-3-3-5-released/). To fix it we need to override the bower.json that comes with the Bootstrap bower package. Add the following section to our bower.json file
+
+{% highlight json %}
+  ...
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/js/bootstrap.js",
+        "dist/css/bootstrap.css",
+        "less/bootstrap.less"
+          ]
+      }
+  }
+{% endhighlight %}
+
+Now running ```grunt wiredep``` should link in the css.
+
+# Launching a Development Preview Server with ```grunt-contrib-connect```

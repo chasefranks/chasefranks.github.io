@@ -23,8 +23,8 @@ After installing Jekyll and Bundler, getting this site built and running on a lo
 ```bash
 cd chasefranks.github.io
 bundle install
-jekyll build
-jekyll serve
+bundle exec jekyll build
+bundle exec jekyll serve
 ```
 
 ```bundle install``` - uses the Ruby gem [*bundler*](http://bundler.io/rationale.html) to install the dependencies listed in Gemfile.
@@ -32,6 +32,8 @@ jekyll serve
 ```jekyll build``` - builds the site
 
 ```jekyll serve``` - launches a web server to preview your changes locally. You should be able to see your site by launching a browser and going to http://localhost:4000.
+
+**Note:** these commands are executed with through ```bundle exec``` to manage Ruby dependencies through the Gemfile.
 
 ### Adding Posts
 
