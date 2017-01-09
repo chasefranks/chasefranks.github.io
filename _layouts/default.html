@@ -10,7 +10,7 @@
     <div class="container">
 
       <div class="blog-header">
-        <h1 class="blog-title">{{site.title}}</h1>
+        <h2 class="blog-title">{{site.title}}</h2>
         <p class="lead blog-description">{{site.description}}</p>
       </div>
 
@@ -24,7 +24,15 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- <script src="../../dist/js/bootstrap.min.js"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+      $('#topnavbar').affix({
+        offset: {
+            top: $('#header-img').height()
+        }
+      });
+    </script>
 
   </body>
 
