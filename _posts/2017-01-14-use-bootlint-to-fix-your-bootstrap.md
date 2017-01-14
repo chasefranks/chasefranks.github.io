@@ -4,7 +4,7 @@ title:  "Use bootlint To Fix Your Bootstrap"
 date:   2017-01-14
 categories: css bootstrap linting
 intro: >
-   As this blog progresses, the time is probably ripe for me to fix some css errors that have cropped up. I'm not real happy with my recent addition of the Bootstrap ```affix``` plugin to make my nav bar stick to the top. Also, the new banner image I've added doesn't have the responsive behavior I want. I started trying to clean up the code, and stumbled on the [bootlint](https://github.com/twbs/bootlint) through the power of Google.
+   As this blog progresses, the time is probably ripe for me to fix some css errors that have cropped up. I'm not real happy with my recent addition of the Bootstrap ```affix``` plugin to make my nav bar stick to the top. Also, the new banner image I've added doesn't have the responsive behavior I want. I started trying to clean up the code, and stumbled on a tool called [bootlint](https://github.com/twbs/bootlint) through the power of Google.
 
 
    bootlint is a tool that can scan your html for common mistakes when using the Bootstrap framework. In this post, we'll use bootlint to fix the default layout of this blog. What bootlint uncovered when I scanned this blog was horrifying, but was just the reality check I needed to go about fixing the layout.

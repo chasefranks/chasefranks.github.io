@@ -40,29 +40,24 @@ h6, .h6 {
   }
 }
 
-/*close out border radius on Bootstrap navbar*/
-.navbar {
-
-}
-
 #topnavbar {
-    border-radius: 0px;
-    margin: 0;
-    z-index: 1;
-}
-#topnavbar.affix {
-    position: fixed;
-    top: 0;
-    width: 100%;
+  border-radius: 0px;
+  margin: 0;
+  z-index: 1;
 }
 
+#topnavbar.affix {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 
 #header-img {
-  height: 202px;
-  background-image: url('/images/driving.jpg');
-  background-repeat: no-repeat;
+  height: 175px;
+  background-image: url('/images/driving-banner.jpg');
+  background-repeat: repeat-x;
   background-attachment: fixed;
-  background-size: 100% auto;
+  background-size: 1500px;
 }
 
 /*
