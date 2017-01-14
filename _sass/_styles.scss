@@ -183,6 +183,11 @@ h6, .h6 {
   margin-right: 5px;
 }
 
+/* Styling for tables */
+table {
+  @extend .table, .table-striped;
+}
+
 /*
  * Blog posts
  */
