@@ -30,9 +30,11 @@ What I'm about to say is not meant to frustrate, it is meant to reflect *my* fru
 
 > Your number one obstacle in IT will not be technology. It will be people and their backwards tendency to build fiefdoms.
 
-This statement is probably more true in so called 'enterprise' environments (a meaningless term, but you can take it to mean that there is more money around), than it would be in a small web start up in Austin, but I believe it is something we all suffer from and need to be cognizant of, in ourselves as well as others. Individually, we can introduce needless complexity to try and solve a problem. Maybe we want to try a new technology and think it will work, but get defensive when we have gone too far and our reputation's at stake. That's a harmless version of this problem, and can be defeated with discipline and experience. What I'm referring to is the hordes of lower to mid-level managers you will encounter in IT, each one jockeying against the other like politicians running for reelection. Let's break this down a bit.
+This statement is probably more true in so called 'enterprise' environments (a meaningless term, but you can take it to mean that there is more money around), than it would be in a small web start up in Austin, but I believe it is something we all suffer from and need to be cognizant of, in ourselves as well as others. Individually, we can introduce needless complexity to try and solve a problem. Maybe we want to try a new technology and think it will work, but get defensive when we have gone too far and our reputation's at stake. That's a harmless version of this problem, and can be defeated with discipline and experience. What I'm referring to is the behaviors exhibited by the hordes of lower to mid-level managers you will encounter in IT, each one jockeying against the other for who gets the new server. Let's break this down a bit.
 
-In software development, there are resources like servers, memory, hard disks, networks, etc. When you are writing software, you need to deploy your code into an environment that requires resources. Invariably, what I have found is that I have been limited in what I need to do by the perception that I am 'taking' someone's resources, or that someone is doing me a personal favor by providing compute resources. I'm just doing my fucking job in the most neutral and generic way for the company, working 9 to 5, trying to be useful and not lose my mind in the process. My goal at work is to simply do what I need to do, then leave. But then there are people (usually managers) who take their jobs personally and want to be petty. I usually find these types at the lower end of the spectrum, and rarely hear anything intelligent from them. They are able to magically create this false impression of *ownership*. Let's go in that direction shall we?
+In software development, there are resources like servers, memory, hard disks, networks, etc. When you are writing software, you need to deploy your code into an environment that requires resources. Invariably, what I have found is that I have been limited in what I need to do by the perception that I am 'taking' someone's resources, or that someone is doing me a personal favor by providing compute resources. I'm just doing my fucking job in the most neutral and generic way for the company, working 9 to 5, trying to be useful and not lose my mind in the process. My goal at work is to simply do what I need to do, then leave. But then there are people (usually managers) who take their jobs personally and want to be petty squabbling children. I usually find these types at the lower end of the spectrum, and rarely hear anything intelligent from them. They operate by creating a false impression of *ownership*, which basically means taking credit for what other people with real skills create for the company.
+
+Let's go in that direction shall we?
 
 ## Who Owns That?
 
@@ -55,7 +57,7 @@ Let's take another example,
 * you *create* or change code to fix the problem
 * what was broke is now fixed and looks great again
 
-Again, who owns that? Who gives a fuck? When you were in elementary school and were dreaming about what work would be like, did you seriously imagine your main occupation to be taking credit for work that people with real skills produced?
+Again, who owns that? Who gives a fuck? When you were in elementary school and were dreaming about what you would do when you grew up, did you ever imagine your main occupation to be taking credit for work that people with real skills produced?
 
 # Worst Practices
 
@@ -67,7 +69,7 @@ That's right, not one. In fact, I have fought tooth and nail with managers in ev
 
 I am a fierce DevOps advocate, and I was led to those practices naturally, through necessity and encountering problems in deploying software in my day to day work. I literally had a nagging problem, read about DevOps practices, and used what I read to solve it myself. For example, those fiefdom builders I mentioned earlier are one of the main antagonists in the DevOps story and there are practices in DevOps that directly address transparency, visibility into process, etc. This is how I work. I follow my own intellect and choose the practices that help me solve what is in front of my eyes. I work along side people who back up their tool sets and the things they do because of real experience. When I bring up a new idea, I do it through demonstrations and presentations. I leave behind my ideas in the form of git repos that you can clone and run yourself...my story starts and ends with code.
 
-I literally still have people (managers) who do not write a single line of anything (Excel doesn't count) somehow influencing how I work and what tools I can use, and it is 100% due to petty bullshit agendas that not even Betty one seat over knows about. There are no meetings. No roadmaps. No memos because that would require unambiguous communication. It is all behind the scenes, but at the end of the day it means your lightweight scalable superfast REST API backed by MongoDB and deployed with Docker needs to be migrated to Oracle, because...well, we use Oracle around here.
+I literally still have people (managers) who do not write a single line of anything (Excel doesn't count) somehow influencing how I work and what tools I can use, and it is 100% due to petty bullshit agendas that not even Betty one seat over knows about. There are no meetings, roadmaps, or memos, because those would require unambiguous communication. It is all behind the scenes, but at the end of the day it means your lightweight scalable superfast REST API backed by MongoDB and deployed with Docker needs to be migrated to Oracle, because...well, we use Oracle around here.
 
 And lastly, even basic habits like
 
@@ -87,7 +89,7 @@ When you find yourself the only one on the team writing unit tests up front as y
 
 # Loneliness and Isolation
 
-Developers can work day to day within a few feet of each other, but be isolated by imaginary **silos**. Even developers on the same team can be fragmented and played off one another by shrewd operatives. The most difficult experiences I've had are when I'm trying to put in place something new, I know it will just work, but I'm being corn shuckled by management. It's difficult and you can feel at times like people are just watching you, waiting for you to go crazy because they are sort of aware of the inevitable fallibility and dysfunction of their work place.
+Developers can work day to day within a few feet of each other, but be isolated by imaginary **silos**. Even developers on the same team can be fragmented and played off one another by shrewd operatives. The most difficult experiences I've had are when I'm trying to put in place something new, I know it will just work, but I'm being corn shuckled by management. It's difficult and you can feel at times like people are just watching you, waiting for your head to fall off because they are sort of aware of the inevitable fallibility and dysfunction of their work place.
 
 You have to keep reminding yourself this singular truth
 
