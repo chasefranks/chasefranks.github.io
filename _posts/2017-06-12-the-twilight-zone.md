@@ -8,7 +8,7 @@ intro: >
 
 
   I did want this blog to be about more than just tech however, since there's way much more to life than that. I wanted to write about family and work life balance. I also wanted to use this blog as a conduit for some of my thoughts concerning IT management, what it's really like to work in IT, and tips for furthering your skills even when your job works against you. Unfortunately, I find that there are a lot of forces that keep me from actually using my full potential, and I would like to discuss those here in the hopes of giving some 'real world' guidance to anyone who wants to pursue a career in IT.
-published: false
+published: true
 ---
 {{page.intro}}
 
@@ -77,17 +77,22 @@ And lastly, even basic habits like
 
 are nonexistent, indirectly discouraged by non participation, or even blatantly discouraged by management with the excuse that they eat too much time.
 
-Unit testing is a big one with me. The developer who showed me how to unit test taught me that every method I write is covered by a test. What happens is that you spend some initial time putting the framework in place, creating a directory, etc. and figuring out some of the most common test patterns you need for your project. With experience, this adds almost no additional time to project setup, and in fact most build tools add this scaffolding for you automatically, with hooks to run your tests on every build. Then once you get the hang of unit testing, writing tests at the same time you code becomes natural. The unit tests offer all sorts of benefits during development time:
+Unit testing is a big one with me. The developer who showed me how to unit test taught me that every method I write is covered by a test. What happens is that you spend some initial time putting the testing framework in place, creating a directory, etc. and figuring out some of the most common test patterns you need to test the code you most frequently write. With experience, this adds almost no additional time to project setup, and in fact most build tools add this scaffolding for you automatically, with hooks to run your tests on every build. Once you get the hang of unit testing, writing tests at the same time you code becomes natural. The unit tests offer all sorts of benefits during development time:
 
 * running the test against the code as your write it gives a rock solid guarantee that it works as expected
 * if you can't naturally test your code in isolated units, it usually means the design is poor
-* unit tests offer a quick debug entry point versus starting the full application and coercing the affected code path to fire
+* a quick debug entry point versus starting the full application and coercing the affected code path to fire
 
 When you find yourself the only one on the team writing unit tests, you may be slower in the short term than your teammates, but keep putting those tests in place and using them to drive your code patterns. You will catch bugs and put in place a framework where assumptions about how code should behave can be documented with functioning test code. When new bugs arise, show your team how to catch the bug with a test to ensure it doesn't crop up again. If your manager gives you shit, just remember he has no business managing a software development team if he tells you to not unit test your code.
 
 # Loneliness and Isolation
 
-Developers can work day to day within a few feet of each other, but be isolated by imaginary **siloes**. Even developers on the same team can be fragmented and played off one another to suit a manager.
+Developers can work day to day within a few feet of each other, but be isolated by imaginary **silos**. Even developers on the same team can be fragmented and played off one another by shrewd operatives. The most difficult experiences I've had are when I'm trying to put in place something new, I know it will just work, but I'm being denied by management. It's difficult and you can feel at times like people are just watching you, waiting for you to go crazy because they are sort of aware of the inevitable fallibility and dysfunction of their work place.
 
+You have to keep reminding yourself a singular truth about this job
 
-My current work environment is an open office floor plan. There are no cubicles. Instead everyone sits at open tables, feet from each other. It's very akward at times, especially when you are trying to do something that requires thought. I don't always look good when I'm trying to solve something.
+> It does not truly matter.
+
+Remember that software is for people and should serve people...not the other way around. This goes for the tools developers use, down to the actual product for the end user.
+
+Lastly, you can also get into a spot where your family doesn't understand the time you need to spend to broaden and add to your skill set. This is a tough one, and I have no good advice to give anyone. In practice, I regularly get bleed over into my family time where I have to work on something. The ideal is to have a work environment that is challenging you in order for you to be productive for them. This is fundamentally not the case, and I find that I am usually trying to find side projects for me to work on just to *keep* my skills sharp. To me this is such a travesty, and I deserve better since I have the discipline for it. These companies seem to just want to pay me more to do less work. I don't want more money, I want to do something meaningful.
