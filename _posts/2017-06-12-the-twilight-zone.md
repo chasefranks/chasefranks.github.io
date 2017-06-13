@@ -87,12 +87,12 @@ When you find yourself the only one on the team writing unit tests up front as y
 
 # Loneliness and Isolation
 
-Developers can work day to day within a few feet of each other, but be isolated by imaginary **silos**. Even developers on the same team can be fragmented and played off one another by shrewd operatives. The most difficult experiences I've had are when I'm trying to put in place something new, I know it will just work, but I'm being denied by management. It's difficult and you can feel at times like people are just watching you, waiting for you to go crazy because they are sort of aware of the inevitable fallibility and dysfunction of their work place.
+Developers can work day to day within a few feet of each other, but be isolated by imaginary **silos**. Even developers on the same team can be fragmented and played off one another by shrewd operatives. The most difficult experiences I've had are when I'm trying to put in place something new, I know it will just work, but I'm being corn shuckled by management. It's difficult and you can feel at times like people are just watching you, waiting for you to go crazy because they are sort of aware of the inevitable fallibility and dysfunction of their work place.
 
-You have to keep reminding yourself a singular truth about this job
+You have to keep reminding yourself this singular truth
 
 > It does not truly matter.
 
-Remember that software is for people and should serve people...not the other way around. This goes for the tools developers use, down to the actual product for the end user.
+Remember that software is for people and should serve people...not the other way around. This goes for the tools developers use, down to the actual product for the end user. It pays to work with people and build friendships, even if you have to lose a few arguments.
 
 Lastly, you can also get into a spot where your family doesn't understand the time you need to spend to broaden and add to your skill set. This is a tough one, and I have no good advice to give anyone. In practice, I regularly get bleed over into my family time where I have to work on something. The ideal is to have a work environment that is challenging you in order for you to be productive for them. This is fundamentally not the case, and I find that I am usually trying to find side projects for me to work on just to *keep* my skills sharp. To me this is such a travesty, and I deserve better since I have the discipline for it. These companies seem to just want to pay me more to do less work. I don't want more money, I want to do something meaningful.
