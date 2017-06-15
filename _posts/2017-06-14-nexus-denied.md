@@ -93,17 +93,21 @@ There is one repository website that comes built into Maven, and is where all Ja
 
 Try me out. Find a jar, download it, rename it to end with .zip, and unzip it to see the class files. Also, see how the POM is is in the same 'directory' as the jar. That is how the dependencies of dependencies are discovered.
 
-If you are an open source Java developer, and want to make your jar available for others to use it in their maven projects, the Central repo is where you want it to be. If you work for a tight-assed corporation like I do that thinks being secretive creates 'value', then you may want the benefits of maven but don't want to allow your developers to upload jars for every one to use.
+If you are an open source Java developer, and want to make your jar available for others to use in their maven projects, the Central repo is where you would upload it to. If you work for a tight-assed corporation like I do that thinks being secretive creates 'value', then you may want the benefits of maven but don't want to allow your developers to upload jars for every one to use.
 
 Don't think I have a point? Again try me out. Do yourself a favor and search for 'netflix' on the Central repo. You will see them all over the place with some of the most fascinating contributions to open source Java to date in my opinion. They took the Java jars that resulted from solving the same problems that keep your Netflix service streaming without interruption, and made them available for everyone to use. They published their shit to the Central Repo and went back to being awesome and designing more software. They are also confident enough to know where there true value lies, which is why they think developers being able to run a build over an airport wifi connection is important.
 
-Here's another one, search for 'spotify', another company that offers uninterupted streaming. They even contribute a plugin for maven for building Docker images from jars.
+Here's another one, search for 'spotify', another company that offers uninterupted streaming. They even contribute a plugin for maven for building Docker images from jars, which is a contribution to the maven project itself.
 
 I don't understand this reflexive tendency to want to hide everything because your afraid of being out done. I would think the natural impulse for a company would be to encourage and facilitate their developers to be open source contributors. My theory is that most corporations do not have relaxed and mentally competent people who are in the right state to carefully identify what is really valuable.
 
 # Nexus
 
 Finally, we have everything in place to understand what I was trying to do. At my tight-assed company, we have an internal repository for our own corporate proprietary jars to go. This repository is a server running software called Nexus, which is essentially a special purpose web server like all repositories. Nexus allows you to host your corporate jars internally, and forwards your request to the Central repo when it can't get a hit on your GAV coordinates.
+
+This server has one purpose, and it is to host jars produced by java developers, myself and others. Otherwise it just sits there with its fans whirring, lights blinking. I work with Maven and Nexus all day long, sorting out build errors for myself as well as other people, giving demos, etc. One day I even aspire to making a contribution to the Central Repo and FOSS. I want others who inherit or just want to try my project out to be able to run mvn package and build the software easily, relying on the automation maven brings. A lot of my beliefs about software and making it easy for others to compile, change, and run are motivated by [readme driven development](http://tom.preston-werner.com/2010/08/23/readme-driven-development.html) an idea proposed by Tom Preston-Werner, the founder of Github. I was looking at my READMEs and I wanted people to be able to do a simple ```mvn package``` on the main project instead of asking them to clone several other git repos and run ```mvn install```, a way to shortcut the repository availability, on those.
+
+This guy shuts me down in several hours with no help from my manager...and I'm not even sure I'm barking up the right tree. This guy could be a chatbot for all I know. I just know that he was someone I could try, and I'm trying to do the best job I can. In my workplace, nothing is simple and explicit and no one is going to help you unless they're explicitly told to. It's unfortunate because I believe strongly in helping, talking, and empathizing with others.
 
 # Conclusion
 
