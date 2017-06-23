@@ -89,7 +89,23 @@ When you find yourself the only one on the team writing unit tests up front as y
 
 # Loneliness and Isolation
 
-Developers can work day to day within a few feet of each other, but be isolated by imaginary **silos**. Even developers on the same team can be fragmented and played off one another by shrewd operatives. The most difficult experiences I've had are when I'm trying to put in place something new, I know it will just work, but I'm being corn shuckled by management. It's difficult and you can feel at times like people are just watching you, waiting for your head to fall off because they are sort of aware of the inevitable fallibility and dysfunction of their work place.
+## Siloes
+
+Developers can work day to day within a few feet of each other, but be isolated by imaginary **silos**. Even developers on the same team can be fragmented and played off one another by shrewd operatives. The most difficult experiences I've had are when I'm trying to put in place something new, I know it will just work, but I'm being corn shuckled by management. It's difficult and you can feel at times like people are just watching you, waiting for your head to fall off because they are sort of aware of the inevitable fallibility and dysfunction of their work place. They are simply in the same boat as you, and have maybe given up.
+
+## Finding Work
+
+A phenomenon I have dealt with on almost every job I've worked on is actually finding work to do. I'm dealing with this right now in fact. What happens is that almost no one is going to actually approach you with a simple and straightforward project to get you up and running on a new job. Instead I've found that you are sort of ignored, for lack of a better term. My last employer actually made a very good attempt to get me trained and up and running, so it differs by company and even by team.
+
+Over time, I have developed some techniques for over coming this, starting with the usual one...simply find someone and ask. You may get denied at first, so you will have to come back at a better time. Another technique is observing for a while and proposing my own project, which has garnered me some success, but it's a little risky. A lot of managers are happy letting you go down any rabbit hole you want to as long as it doesn't actually change anything and you're quiet. It has required a lot of courage and imagination just to get in the loop on some jobs, and it is not simply a matter of showing up and being naturally assimilated into the team. In my mind, it should be and a good leader will facilitate your training and help give you projects that are important and give you context.
+
+Even with experience and perseverance, there may be other obstacles preventing free and natural collaboration to take place. In the situation I'm in now, work and projects are being doled out as a reward. Everyone around me has work to do to keep them busy, but I seem to be left out of the loop. My team for the most part stares at their monitors and does not seem to want to involve me. When I approach people, I get this feeling like I'm bothering them. A few even complain about having too much to do. It can be unbearable because it makes the day go by so much slower and can be an affront to your confidence. My wife's description of her work environment when she started was even more dismal, and involved putting people in a basement for an indefinite period of time. See the movie Office Space for more information.
+
+This is ridiculous to me. I am a highly trained individual with a strong work ethic. I can get frustrated, but overall I think of myself as a happy and relaxed person who is open-minded and easy to work with. I feel like I somewhat know what I'm doing and love to be creative and make people's jobs easier. There are very few challenges that intimidate me, and I usually know what people are trying to accomplish and can adjust my skills to help them.
+
+The only way I can see to combat this is to think about how I would train someone. I have many hours in the classroom teaching math at the university level, and would never think to abandon those around me to their own devices. If I'm ever responsible for bringing on a new hire, I would have a carefully designed project in place with daily contact and check-ins scheduled. If your hiring on experienced developers and still can't give them work to do, that's just poor management in my opinion.
+
+## Remember What You Do
 
 You have to keep reminding yourself this singular truth
 
@@ -97,4 +113,8 @@ You have to keep reminding yourself this singular truth
 
 Remember that software is for people and should serve people...not the other way around. This goes for the tools developers use, down to the actual product for the end user. It pays to work with people and build friendships, even if you have to lose a few arguments.
 
-Lastly, you can also get into a spot where your family doesn't understand the time you need to spend to broaden and add to your skill set. This is a tough one, and I have no good advice to give anyone. In practice, I regularly get bleed over into my family time where I have to work on something. The ideal is to have a work environment that is challenging you in order for you to be productive for them. This is fundamentally not the case, and I find that I am usually trying to find side projects for me to work on just to *keep* my skills sharp. To me this is such a travesty, and I deserve better since I have the discipline for it. These companies seem to just want to pay me more to do less work. I don't want more money, I want to do something meaningful.
+Also, keep in mind what your own expectations of software are. Don't you just want to get done what you need done and get off of it?
+
+## Family
+
+Lastly, you can also get into a spot where your family doesn't understand the time you need to spend to broaden and add to your skill set. This is a tough one, and I have no good advice to give anyone. In practice, I regularly get bleed over into my family time where I have to work on something. The ideal is to have a work environment that is challenging you in order for you to be productive for them. This is fundamentally not the case, and I find that I am usually trying to find side projects for me to work on just to *keep* my skills sharp. To me this is such a travesty, and I deserve better since I have the discipline for it. These companies seem to just want to pay me more to do less work. I don't want more money, I want to do something meaningful and have more time with my family.
