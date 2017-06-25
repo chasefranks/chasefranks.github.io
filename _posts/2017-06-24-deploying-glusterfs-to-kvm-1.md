@@ -9,15 +9,17 @@ published: true
 ---
 {{page.intro}}
 
-## Storage Layout On My KVM Server
+## Allocating Physical Storage On My KVM Server
 
-It's been a while since I looked at this beast, and I want to do some stuff with GlusterFS today. In fact, my goal is
+It's been a while since I looked at this beast, and I want to do some stuff with GlusterFS today. In fact, my goal is to
 
-> set up a dynamic storage provisioner in Kubernetes using the GlusterFS storage class
+> set up a dynamic storage provisioner in Kubernetes using the GlusterFS storage class.
 
 I've been using Kubernetes for dev deployments, and have run up against the limitations of ephemeral storage in containers (e.g. MongoDB needs persistent storage at the end of the day). The ```emptyDir``` volume in Kubernetes works for only the most trivial purposes, and disappears as soon as a pod is rescheduled onto a different Kubernetes node. ```hostPath``` is no better, since it is backed by a directory on one of the nodes.
 
-This will probably be a three part series, so stay tuned. For today, my goal is to remember how I carved up my physical disks into logical volume groups (LVGs). It's probably a mess, but my goal is to create a logical volume of about 300 GB and attach this to a KVM storage pool. This storage pool will be used to allocate three disks (about 100 GB each), which will ultimately be the GlusterFS bricks.
+For today, my goal is to remember how I carved up my physical disks into logical volume groups (LVGs). If I have space, I want to create a logical volume of about 300 GB and attach this to a KVM storage pool. From this storage pool I will allocate three qcow2 volumes (about 100 GB each), and attach each one of these to a Kubernetes worker as a block device. Each Kubernetes worker will run a GlusterFS pod, and the newly created block device will be used for the GlusterFS brick.
+
+If you're comfortable doing this yourself, or on a different platform, feel free to skip to [part 2](/kubernetes/storage/kvm/2017/06/25/deploying-glusterfs-to-kvm-2.html).
 
 ### Physical Storage
 So let's see what's going on starting with a shell right on the KVM hypervisor host. I like the lsblk command to get an overview of what block devices are available
@@ -329,11 +331,11 @@ I click ***Manage*** and choose one of the volumes, in this case, gluster3 from 
 
 Click ***Choose Volume***, then ***Finish***
 
-![kvm choose volume](/images/kvm-add-volume/3.png)
+![kvm choose volume](/images/kvm-add-volume/4.png)
 
 ## Conclusion
 
-Each one of my Kubernetes worker nodes should now have a 100 GB block device
+Each one of my Kubernetes worker nodes should now have a 100 GB block device. Let's check this by ssh'ing into one of them and using the same ```lsblk``` command we used on the hypervisor host
 
 ```
 lsblk
