@@ -180,4 +180,4 @@ Volumes:
 9748eab3f1bc3d558eb245e298284e78
 ```
 
-Our Kubernetes ```StorageClass``` will use the Heketi service to dynamically provision volumes for pods, so we'll assume everything is good for now. Later on, I'll give a more detailed walk through of Heketi and GlusterFS, but I would like to actually get back to deploying apps and writing code, so let's move on to the next post.
+Our Kubernetes ```StorageClass``` will use the Heketi service to dynamically provision volumes for pods, so we'll assume everything is good for now. Later on, I'll give a more detailed walk through of Heketi and GlusterFS, but I would like to actually get back to deploying apps and writing code, so let's move on to the next post where we create our StorageClass and use it to provision persistent storage for MongoDB.
