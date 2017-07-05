@@ -119,13 +119,13 @@ Maybe you find this readable at first glance, maybe not. The important idea here
 
 ## Blue Ocean
 
-Jenkins is heading in the right direction with their new UI called Blue Ocean. Pipelines are first class citizens in Blue Ocean, so let's create the pipeline described in our Jenkins file above from Blue Ocean.
+Jenkins is heading in the right direction with their new UI called [Blue Ocean](https://jenkins.io/doc/book/blueocean/). Pipelines are first class citizens in Blue Ocean, so let's create the pipeline described in our Jenkins file above from Blue Ocean.
 
 Click ***New Pipeline*** in the upper right corner, and bring up the Create Pipeline screen:
 
 ![create pipeline in Jenkins Blue Ocean](/images/create-pipeline-1.png)
 
-We're going to give it our Git repository. This code is not on Github at the moment, it is in a private Git server I'm running in my home lab with url ```ssh://git@gogs.home:10022/chase/mydiary.git```, so we choose the plain Git option and give it our repo url.
+We're going to give it our Git repository. This code is not on Github at the moment. It is in a private Git server I'm running in my home lab with url ```ssh://git@gogs.home:10022/chase/mydiary.git```, so we choose the plain Git option and give it our repo url.
 
 ![create pipeline in Jenkins Blue Ocean](/images/create-pipeline-2.png)
 
