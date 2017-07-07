@@ -143,7 +143,7 @@ We can click on this run to see a visual of the stages of our pipeline, and can 
 
 ![stages](/images/create-pipeline-4.png)
 
-This project actually produces a Docker container that packages up the Spring Boot runnable jar, and publishes this jar to DockerHub. Remember the Jenkinsfile tagged the image with dev and dev-shortCommitSha where the shortCommit was the first 8 hex digits of the commit sha
+This project actually produces a Docker container. The mvn package produces the jar, and if you know a little about Spring Boot, you know that the jar is *runnable* which means it contains a stand-alone application that can be run with ```java -jar my-app.jar```. All it needs to run is a Java environment, so we wrap the jar in a Docker image with Java already installed. This is specified by the Dockerfile in the project root. This image is then published to DockerHub. Remember the Jenkinsfile tagged the image with dev and dev-shortCommitSha where the shortCommit was the first 8 hex digits of the commit sha, so this means we can always trace the image back to the commit from which it was built.
 
 ![docker-build detail](/images/create-pipeline-5.png)
 
