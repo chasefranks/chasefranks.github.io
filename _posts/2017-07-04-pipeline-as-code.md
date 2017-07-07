@@ -15,31 +15,35 @@ Let's step back a bit and start by explaining what [Jenkins](http://jenkins.io) 
 
 ![jenkins ui](/images/jenkins-home.png)
 
-The blue dots for each job means that the last build was successful. The weather icons show three sunny jobs with good stable histories, and the two that I've been mucking around with have only recently been fixed. For a production instance of Jenkins there would be a lot of jobs constantly being executed by different teams while they work. If a job gets an error, Jenkins notifies the team via email. While you can glance at the dashboard any time you like, it is usually via email, chat, or some other message channel the team is monitoring, that problems are revealed.
+The blue dots for each job means that the last build was successful. The weather icons show three sunny jobs with good stable histories. The two that I've been mucking around with have only recently been fixed, so Jenkins shows storm clouds for those. For a production instance of Jenkins there would be a lot of jobs constantly being executed by different teams while they work, and those jobs would constantly be transitioning states. While you can check the dashboard anytime you like, most teams are notified of build failures via email, chat, or some other message channel they are monitoring.
 
 ## Why Jenkins
 
-Let's say you have some Java code stored in a git repository somewhere. As you work on your code, you will usually run a litany of unit tests before committing it to the repository. In fact, if you use Maven, unit tests are scanned for and run everytime you use ```mvn clean package``` to compile and produce the .jar file. Before commiting a change to the repository, most developers will run this command to make sure the project builds without errors.
+Let's say you have some Java code stored in a git repository somewhere. As you work on your code, you will usually run a litany of unit tests before committing it to the repository. In fact, if you use Maven, unit tests are scanned for and run every time you use ```mvn clean package``` to compile and produce the .jar file. Before committing a change to the repository, most developers will run this command to make sure the project builds without errors.
 
-When you are working by yourself, you can have a great deal of confidence that your local unit test sweep before commit means the code is fine. When you work on a team (even with just a few people), this is no longer the case. The main problem is that every developer maintains their own local *state* of the project. I frequently run into cases where a build works on one person's machine, but is broken on mine, and vice versa. No one can really agree on the state of the project because there is no common environment to check against. The practice of continuous integration relies on a central build environment where changes to source are constantly being integrated, compiled, and tested, as frequently as they are pushed by the developers.
+When you are working by yourself, you can have a great deal of confidence that your local unit test sweep before commit means the code is fine. When you work on a team (even with just a few people), this is no longer the case. The main problem is that every developer maintains their own local *state* in their development environment. I frequently run into cases where a build works on one person's machine, but is broken on mine, and vice versa. No one can really agree on the state of the project because there is no common environment to check against. The practice of continuous integration relies on a central build environment where changes to source are constantly being integrated, compiled, and tested, as frequently as they are pushed by the developers.
 
 This is where Jenkins comes in. Jenkins serves as the common build environment and is the last word on the state of the project. Usually, when the Jenkins build is broke, it is the team members' responsibility to get the build back into a working state.
 
-For this reason, it is important to run the build frequently. If you only run the build every night at 12 a.m., and it is broke for some reason, it could be any change committed that day that could've broke it. Jenkins is usually configured to run the job automatically on every new commit using git web hooks. A web hook is simply a POST message with some payload that is sent to Jenkins from the Git server when new commits are pushed to the repo. When Jenkins receives the POST message, it pulls in the latest changes and runs the build. If developers are committing code frequently, Jenkins combined with web hooks makes it very easy to see which change broke the build, and makes it easier to fix the build as a result.
+For this reason, it is important to run the build frequently. If you only run the build every night at 12 a.m., and it is broke for some reason, it could be any change committed that day that could've broke it. To alleviate this, most teams configure Jenkins to run the build whenever new commits are pushed using something called a git ***web hook***. A web hook is simply a POST message with some payload that is sent to Jenkins from the Git server when new commits are pushed to the repo. When Jenkins receives the POST message, it pulls in the latest changes and runs the build. If developers are committing code frequently, Jenkins combined with web hooks makes it very easy to see which change broke the build, and makes it easier to fix the build as a result.
 
 ## Pipeline as Code
 
-Now when you set up your job in the web UI, and you set up enough of these, you start to realize that there is a lot of special configuration that is being performed for each job. You don't just stop at running the tests and building the .jar, .war, etc. A lot of Jenkins jobs will go on to building a Docker container, publishing to Nexus, or deploying the application, after the main build steps have been performed. There is a whole ecosystem of Jenkins plugins for doing all sorts of things.
+Now when you set up your job in the web UI, and you set up enough of these, you start to realize that there could be a lot of special configuration that is being performed for each job. You don't just stop at running the tests and building the .jar, .war, etc. A lot of Jenkins jobs will go on to building a Docker container, publishing to Nexus, or deploying the application, after the main build steps have been performed. There is a whole ecosystem of Jenkins plugins for doing all sorts of things, but sometimes when a plugin isn't available to do what you want, you have to install tools right onto the server. This makes the Jenkins server a ***snowflake***, which means that there is so much specialized configuration not documented anywhere, it becomes almost impossible to reproduce reliably in the event of failure or migration. [Here](https://tech.winton.com/blog/2017/04/continuous-deployment-of-containerised-microservic) is a good post on just this topic.
 
-As you are pointing and clicking, you begin to think
+As you are pointing and clicking, you can't help but think
 
 > What would happen if this server crashed right now and I lost all of the jobs and configuration I've set up? Also, it's lonely here...how did I get stuck with setting up Jenkins and how can I get the team involved?
 
-The UI for Jenkins is not intuitive at all, and the documentation is even worse. If you work with it enough, you get the hang of it, but it requires time that not everyone has. This means that you are burying a lot of effort into something that can't be described because it lacks vocabulary (i.e. a web UI).
+The UI for Jenkins is not intuitive at all, and the documentation is even worse. If you work with it enough, you get the hang of it, but it requires time that not everyone has. This means that replicating or reproducing jobs you've set up in Jenkins requires specialized and expert knowledge in Jenkins itself. Again, let's go back to basics:
+
+> I can simply run mvn clean package, docker build, docker push, etc from a terminal or automate it with a simple bash script.
+
+This is the baseline complexity you are dealing with, so Jenkins should not add too much of it's own lingo to it or else the 'tail is wagging the dog' so to speak.
 
 Another thing that happens all the time is that jobs are migrated from one Jenkins server to another. You can't just export the jobs and have it work on the other server, because it's not one-to-one: You need to know all of the plugins installed on your server, and may have also installed some tools onto the actual server that Jenkins is running on (i.e. Docker). When I'm asked to provide my job configuration, my default answer is to export the list of plugins installed, along with the job xml descriptor using the Jenkins cli, but I'm always a little sad when I do it because I know it won't work.
 
-*Pipeline as Code* was introduced by Jenkins 2.0 as a way of describing a project's build in a simple declarative language. A Jenkins pipeline is simply a series of build stages: checkout, build, test, deploy, etc. The central idea is that you describe your pipeline in a simple text file that is checked into your code repository. The default is to name this file *Jenkinsfile* and place it at the top of your project directory. You simply have to tell Jenkins where your repository is and it will create and run your pipeline for you.
+*Pipeline as Code* was introduced by Jenkins 2.0 as a way of describing a project's build in a simple declarative language. A Jenkins ***pipeline*** is simply a series of build stages: checkout, build, test, deploy, etc. The central idea is that you describe your pipeline in a simple text file that is checked into your code repository. The default is to name this file ***Jenkinsfile*** and place it at the top of your project directory. You simply have to tell Jenkins where your repository is and it will create and run your pipeline for you.
 
 ## An Example
 
@@ -115,11 +119,13 @@ Now breaking this down a bit without going into too much detail:
   * ```build-push-docker-image``` - builds and pushes a Docker image specified by the Dockerfile at the root of the project. The image is tagged *dev* and *dev-<shortCommitSha>* and then pushed to DockerHub using the default Docker credentials configured in this Jenkins instance.
   * ```deploy``` - a placeholder for now, but am planning on deploying to a Kubernetes cluster once I figure out how
 
-Maybe you find this readable at first glance, maybe not. The important idea here is that the build info is in the right place...source control. Now we can spin up a pipeline job.
+Maybe you find this readable at first glance, maybe not. The important idea here is that the build info is in the right place...source control. Now we can spin up a pipeline job, and we sort of want to do it a certain way now. The goal should be to avoid making any changes directly in the UI, or to at least minimize the changes to only the most high level and generic configuration needed. The build per project should be completely driven by the Jenkinsfile.
 
 ## Blue Ocean
 
-Jenkins is heading in the right direction with their new UI called [Blue Ocean](https://jenkins.io/doc/book/blueocean/). Pipelines are first class citizens in Blue Ocean, so let's create the pipeline described in our Jenkins file above from Blue Ocean.
+Jenkins is heading in the right direction with their new UI called [Blue Ocean](https://jenkins.io/doc/book/blueocean/), which facilitates just this workflow and focuses exclusively on Pipelines.
+
+Let's create the pipeline described in our Jenkinsfile in Blue Ocean. I find it a little hard to get the Blue Ocean UI, since they moved the button that was front and center off to the side. In any event, you can just append ```/blue``` to the url in your Jenkins server to get there. For example, if your Jenkins server is accessible at ```http://myjenkins:8080```, then go to ```http://myjenkins:8080/blue```.
 
 Click ***New Pipeline*** in the upper right corner, and bring up the Create Pipeline screen:
 
@@ -147,4 +153,4 @@ If we check DockerHub, we see the image we just pushed is there
 
 We're now free to deploy it into any environment we like, for example a Kubernetes cluster or Docker Swarm. In fact, for a development environment, it would make sense to actually deploy as part of the pipeline as well. I've only just scratched the surface of what's possible here.
 
-Please let me know what you're doing with Pipeline, or if you want me to look into something post in the comments. I still haven't picked up the multi-branch pipeline idea yet, and would love to see it in action.
+Please let me know what you're doing with Pipeline, or if you want me to look into something post in the comments. I still haven't picked up the multi-branch pipeline idea yet, and would love to see it in action. For example, how do you prevent merging the Jenkinsfiles between different branches, or is a single Jenkinsfile used with case logic depending on the current branch?
