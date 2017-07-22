@@ -62,64 +62,19 @@ mydiary/
 
 and I've put my Jenkinsfile at the top so it can be easily found by Jenkins. Let's take a look at what this file contains.
 
-```groovy
-pipeline {
-  agent any
-
-  tools {
-    jdk 'jdk_8'
-    maven 'maven_3'
-  }
-
-  stages {
-
-    stage('checkout') {
-      steps {
-        checkout scm
-      }
-    }
-
-    stage('build-jar') {
-      steps {
-        sh 'mvn clean package'
-      }
-    }
-
-    stage('build-push-docker-image') {
-      steps {
-        script {
-          def image = docker.build 'clf112358/my-diary-rest'
-
-          def commitSha = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
-          def shortCommit = commitSha.take(8)
-
-          image.push "dev"
-          image.push "dev-$shortCommit"
-        }
-      }
-    }
-
-    stage('deploy') {
-      steps {
-        echo 'deploying to kubernetes'
-      }
-    }
-
-  }
-}
-```
+{% gist f39320700cfba1f5e86b2cf80e738de9 %}
 
 Now breaking this down a bit without going into too much detail:
 
-* ```agent any``` means this build can run on any node. You can be more specific here, and even specify that this build should run all stages inside of a Docker container.
-* ```tools``` I need the JDK and Maven to be on the path for this build.
-* ```stages``` there are four stages to this pipeline:
+* ```node { }``` allocates a Jenkins node for this pipeline.
+* ```stage(label){ }``` there are four stages to this pipeline:
   * ```checkout``` - checks out the branch this Jenkinsfile was found on
-  * ```build-jar``` - builds the jar using Maven
-  * ```build-push-docker-image``` - builds and pushes a Docker image specified by the Dockerfile at the root of the project. The image is tagged *dev* and *dev-<shortCommitSha>* and then pushed to DockerHub using the default Docker credentials configured in this Jenkins instance.
-  * ```deploy``` - a placeholder for now, but am planning on deploying to a Kubernetes cluster once I figure out how
+  * ```build jar``` - builds the jar using Maven
+  * ```build and push Docker image``` - builds and pushes a Docker image specified by the Dockerfile at the root of the project. The image is tagged *dev* and *dev-<shortCommitSha>* and then pushed to DockerHub using the default Docker credentials configured in this Jenkins instance.
+  * ```deploy to dev``` - deploys to a local Kubernetes cluster I have running on my home network. Jenkins doesn't have
+  the ```kubectl``` tool available as a Jenkins managed tool yet, so I'm just using the shell step ```sh``` to run shell commands.
 
-Maybe you find this readable at first glance, maybe not. The important idea here is that the build info is in the right place...source control. Now we can spin up a pipeline job, and we sort of want to do it a certain way now. The goal should be to avoid making any changes directly in the UI, or to at least minimize the changes to only the most high level and generic configuration needed. The build per project should be completely driven by the Jenkinsfile.
+Maybe you find this readable at first glance, maybe not. The important idea here is that the build info is in the right place...source control. Now we can spin up a pipeline job, and we now have a way of doing it that is repeatable and is easily ported to different Jenkins servers. The goal should be to avoid making any changes directly in the UI, or to at least minimize the changes to only the most high level and generic configuration needed. The build per project should be completely driven by the Jenkinsfile.
 
 ## Blue Ocean
 
@@ -154,3 +109,19 @@ If we check DockerHub, we see the image we just pushed is there
 We're now free to deploy it into any environment we like, for example a Kubernetes cluster or Docker Swarm. In fact, for a development environment, it would make sense to actually deploy as part of the pipeline as well. I've only just scratched the surface of what's possible here.
 
 Please let me know what you're doing with Pipeline, or if you want me to look into something post in the comments. I still haven't picked up the multi-branch pipeline idea yet, and would love to see it in action. For example, how do you prevent merging the Jenkinsfiles between different branches, or is a single Jenkinsfile used with case logic depending on the current branch?
+
+### Updates
+
+There are two syntaxes for Jenkinsfile:
+
+* declarative - not as flexible, but more structured and as a result may be easier to see the flow of the pipeline
+* scripted - more flexible, can use most Groovy constructs, more powerful
+
+I changed the example Jenkinsfile to use scripted syntax because, suprisingly, I couldn't figure out a way to get the short commit sha from the latest revision, or if I had it trapped in a variable, I couldn't pass it to a different stage down the pipeline.
+
+Another issue I have found while reading through the literature about Jenkins, Docker, and Kubernetes, is that there seems to be some confusion regarding the two different scenarios:
+
+1. I want to produce a Docker image or deploy to Kubernetes as part of my build.
+2. I want to run Jenkins itself in Kubernetes with Jenkins slaves provisioned on demand.
+
+The second scenario is obviously very interesting and from demos I've seen it can provide a highly performing build environment, where builds are actually executed in Docker containers. However, it seems to me that the most natural thing someone would want to do first is deploy *their* application to Kubernetes from Jenkins. If you look at the documentation for the pipeline steps available for Kubernetes: [Pipeline Steps](https://jenkins.io/doc/pipeline/steps/kubernetes-pipeline-steps/), and [DevOps steps](https://jenkins.io/doc/pipeline/steps/kubernetes-pipeline-devops-steps/), it's clear (if you can sift anything from docs that lack a single example) that they are geared towards running stages of the build in Docker containers on Kubernetes. But for the simple task of deploying *my* application to Kubernetes, I had to basically go back to using the shell. Unless I'm missing something, this is the tail wagging the dog in my opinion.

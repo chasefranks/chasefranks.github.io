@@ -16,7 +16,7 @@ github_repo: https://github.com/chasefranks/an_example
 # every code snippet is actually a Github gist
 gist_tag: 78a3073cb4c992de1866899cedb10798
 
-published: true
+published: false
 permalink: /samples/java-example
 ---
 Add more detail here or just show the gist
