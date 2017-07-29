@@ -1,7 +1,7 @@
 ---
 layout: sample
 title: Jenkinsfile for Maven with Docker
-summary: An example Jenkinsfile in declarative syntax showing how to mvn package, build a docker container, and push to DockerHub
+summary: An example Jenkinsfile in scripted syntax showing how to mvn package, build a docker container and push to DockerHub, and update Kubernetes deployment
 language: Jenkinsfile
 
 # categorize code snippet by tags (displayed but not functional yet)
