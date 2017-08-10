@@ -27,7 +27,7 @@ We'll understand this diagram as we go.
 
 ## Nginx Configuration
 
-The REST service will expose resources `/diary`, `/diary/{id}/entry`, '/login', and '/user'. Our Angular application will make API requests from the browser to `/api/*`, and Nginx will forward any url it receives beginning with `/api` to the backend service. Here are the lines in the nginx.conf file for performing this mapping using the `proxy_pass` directive
+The REST service will expose resources `/diary`, `/diary/{id}/entry`, `/login`, and `/user`. Our Angular application will make API requests from the browser to `/api/*`, and Nginx will forward any url it receives beginning with `/api` to the backend service. Here are the lines in the nginx.conf file for performing this mapping using the `proxy_pass` directive
 
 ```
 location /api {
