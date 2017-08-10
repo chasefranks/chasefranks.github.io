@@ -136,12 +136,12 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 ## Deploying to Kubernetes from a Jenkins Pipeline
 
-Our build pipeline will follow these steps:
+Now that we understand how our deployable will be built from source, our build pipeline will follow these steps:
 
-1. git pull and checkout the latest commit
+1. `git pull` and checkout the latest commit
 2. run `npm install` and `ng build --prod`
-3. build and tag the Docker image clf112358/mydiary-angular
-4. update the image version in the Kubernetes deployment
+3. build and tag the Docker image `clf112358/mydiary-angular`
+4. update the image version in the Kubernetes deployment to the latest build
 
 Our Jenkinsfile for the complete deployment looks like this
 
