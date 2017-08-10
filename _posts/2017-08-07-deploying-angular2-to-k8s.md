@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Jenkinsfile for Deploying An Angular2 App"
+title:  "Deploying an Angular 2 App to Kubernetes"
 date:   2017-08-07
 categories: devops jenkins angular2
 intro: >
