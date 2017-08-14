@@ -292,7 +292,7 @@ The view template should look like
 <div class="todo-col" id="todo" [dragula]='"todo-bag"'>
   <h2>Todo</h2>
   <!-- add todos here -->
-  <div class="todo" *ngFor="let todo of todos">{{todo.title}}</div>
+  <div class="todo" *ngFor="let todo of todos">{{todo}}</div>
 </div>
 <div class="todo-col" id="in-progress" [dragula]='"todo-bag"'>
   <h2>In-Progress</h2>
@@ -349,7 +349,7 @@ todos: Todo[] = [
 ]
 ```
 
-Since each todo item is now a complex object, we need to change the reference in our view from `{{todo}}` to what we really want, which is `{{todo.title}}`:
+Since each todo item is now a complex object, we need to change the reference in our view from the simple string value of todo to what we really want, which is `todo.title`
 
 {% raw %}
 ```html
