@@ -292,7 +292,7 @@ The view template should look like
 <div class="todo-col" id="todo" [dragula]='"todo-bag"'>
   <h2>Todo</h2>
   <!-- add todos here -->
-  <div class="todo" *ngFor="let todo of getTodosInTodo()">{{todo.title}}</div>
+  <div class="todo" *ngFor="let todo of todos">{{todo.title}}</div>
 </div>
 <div class="todo-col" id="in-progress" [dragula]='"todo-bag"'>
   <h2>In-Progress</h2>
@@ -313,7 +313,7 @@ GET /todos?userId=user123
 Host: todo.example.com:8080
 ```
 
-to the the list of todos.
+to get the the list of todos for a user with id user123.
 
 The `*ngFor="let todo of todos"` is an Angular2 directive that repeats the element it tags for every item of an array defined in the bound model, in this case the `todos` array. We obtain a reference to the current item with the clause `let todo`, and we can refer to its value with the double brackets syntax.
 
