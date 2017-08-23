@@ -14,4 +14,12 @@ permalink: /books/reviews/javascript_enlightenment
 
 {{page.intro}}
 
-This is a work in progress...will be updating this review as I read.
+That being said, I do not believe this book is sufficient on its own to learn Javascript. It is a great book for understanding the core of Javascript and how Javascript objects work.
+
+## Javascript Objects
+
+This is a short book, and the examples are very easy to understand. Chapters 1 - 8 focus on what I think is the core contribution of this book: an understanding of Javascript objects and the concept of inheritance. In fact, all of the previous chapters build up to chapter 8, which focuses on the `prototype` property of `Function` objects.
+
+## Critique
+
+I'm still learning about Javascript, and this book went straight to the heart of what I was trying to learn: Javascript objects. I like that the examples were so trivial and easy to understand, and led gradual to the end goal of understanding prototypal inheritance. I think my only critique is more of a feeling that this book is really just a quickstart or tutorial. I was reading other sources at the time, for example *Professional Javascript for Web Developers* by Nicholas Zakas (review to come), and when I come back to this book, I feel a better job could
