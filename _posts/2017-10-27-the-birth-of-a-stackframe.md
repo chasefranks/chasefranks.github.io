@@ -161,8 +161,8 @@ Finally, the program counter `pc` is set to point to the first instruction in th
 ![](/images/birth-of-a-stack-frame/16.png)
 
 # Summary
-The JVM starts your program by starting execution at the `main` method. From here different methods are invoked, and for each method a new stack frame is allocated. The `pc` just dances around different sequences of instructions represented as bytes, which perform operations on the current frame. If you can imagine all of this at work in your head, you are most of the way there to understanding most of what the JVM does.
+The JVM starts your program by starting execution at the `main` method. From here different methods are invoked, and for each method a new stack frame is allocated. The `pc` just dances around different sequences of instructions represented as bytes, which perform operations on the current frame. If you can imagine all of this at work in your head, you already understand most of what the JVM does.
 
-That's it! I hoped you enjoyed this post. Stay tuned for my next post where we will discuss how methods return.
+That's it! I hoped you enjoyed this post. Stay tuned for my next [post](/java/jvm/2017/11/02/the-death-of-a-stackframe.html) where we will discuss how methods return.
 
 **Note: This post was written for [Toptal](http://www.toptal.com) to express my interest in joining the Software Developers Group**.
