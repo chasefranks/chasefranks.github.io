@@ -5,7 +5,7 @@ date:   2017/12/05
 categories: algorithms trees
 intro: >
   In this post, we introduce red-black trees. These are a class of binary search trees that are known as balanced trees, and are useful in a variety of applications, for example the `TreeMap` class in Java. We show how the height of a red black tree is bounded by the logarithm of the number of nodes, and demonstrate how to insert a new node into a red black tree.
-published: false
+published: true
 ---
 {{page.intro}}
 
@@ -68,15 +68,92 @@ The problem that a red black tree solves is that it allows a BST to grow in a fl
 
 A red black tree satisfies the following conditions:
 
-* each node is colored red or black
-* the root node is black
-* there are no two adjacent red nodes
-* the number of black nodes on any path from the root to a leaf is the same
+1. each node is colored red or black
+2. the root node is black
+3. there are no two adjacent red nodes
+4. the number of black nodes on any path from the root to a leaf is the same
 
 ## Operations on Red-Black Trees
 
+Suppose we already have a red-black tree, and want to insert a new node. The algorithm for inserting new nodes into red black trees looks something like this.
+
+* Insert the new node in the binary search tree as usual, using comparisons to navigate left/right until a null node is encountered.
+* Color the new node red. This can only break rule 3 above since adding a red node does nothing to the count of black nodes on any path.
+* If the parent of the new node is black, we do not break rule 3 so we are done.
+* Otherwise, use recoloring and rotations on the tree until the red-black rules are satisfied.
+
+Here we describe the operations we can perform. The rotation operations apply to any BST, and preserve the binary property of the tree. The combinations of operations needed turn out to be a easy to describe. For the ultimate reference, view the source of the `java.util.TreeMap` class, namely the method `fixAfterInsertion()`.
+
 ### Recolor
+
+Recoloring is the easiest operation to perform. Let's say we add a new red node, and it has a red parent `p` (otherwise, we would be done by the algorithm above). Because of the red black property 3, `p`'s parent `g` is necessarily black
+
+![red-black tree recolor](/images/new-node-recolor.png)
+
+If the new node has a red uncle `u`, we can simply swap the colors on `g`, `p`, and `u`
+
+![red-black tree recolor](/images/red-black-tree-recolor.png)
+
+Now we've fixed the tree to not have adjacent red nodes, and have preserved the count of black nodes along any path coming into the subtree below `g`. We have however, introduced a red node with `g`, but we simply recurse upwards in the tree and perform the same operations as if `g` were a new node.
+
+### Right Rotation
+
+The left and right rotations apply to all binary search trees in general, so we do not show the red black coloring. A right rotation looks like this:
+
+![bst right rotation](/images/bst-right-rotation.png)
+
+Here we have a node `p` and its left child `l`. `l` is rotated up to the parent while `p` becomes its right child. The triangles denote the entire left or right subtree below the node.
+
+It is easy to see that the rotation operation preserves the comparison relations in the tree
+
+$$A < p \\ l < B < p \\ r < C$$
+
+The key thing to note is that a rotation is a local operation at the node `p`. This means it only affects `p` and the nodes below `p`. The rest of the nodes of the tree are left unchanged.
 
 ### Left Rotation
 
-### Right Rotation
+A left rotation is the inverse of a right rotation, and looks like this:
+
+![bst left rotation](/images/bst-left-rotation.png)
+
+I leave it to the reader to verify the relations are preserved.
+
+## Insertion
+
+Now that we know how to operate on red black trees, we can outline how to fix our tree after inserting a new red node.
+
+Let's say we've inserted our new red node `n`, which has a red parent `p`. The `p`'s parent `g` is necessarily black and not null (the only node in a tree with a null parent is the root node). Here's what we have so far
+
+![](/images/rb-tree-insert-1.png)
+
+The notation *l/r* means the node could be a right or left child of its parent. If `p`'s uncle, `u`, is red, we perform the recolor operation described above, so we assume that `u` is black.
+
+![](/images/rb-tree-insert-2.png)
+
+This gives us 4 cases two consider, depending on whether `p` lies left or right of `g`, and `n` lies left or right of its parent `p`. Now suppose `p` breaks to the right of `g`. We will only describe this case since the other can be handled through symmetry.
+
+Suppose we are in this case
+
+![](/images/rb-tree-insert-3.png)
+
+The first step is a right rotation at p, which produces
+
+![](/images/rb-tree-insert-4.png)
+
+Then we swap colors on `g` and `n` to satisfy red-black property 3.
+
+![](/images/rb-tree-insert-5.png)
+
+Note this reduces the black node count by 1 for all paths going through g and breaking left, but preserves the black count for paths headed right.
+
+Also, this puts a red node `g` at the top of our sub-tree, we may have to check `g` and its parent and recurse up the tree. We can solve both of these issues with a left rotation at `g`
+
+![](/images/rb-tree-insert-6.png)
+
+This handles this case in constant time, since there is no additional checking that needs to occur.
+
+What if the new node `n` breaks to the right of `p`
+
+![](/images/rb-tree-insert-7.png)
+
+We've sort of arrived at this point after the first rotation described above, and we can simply skip that rotation, recolor and left rotate at `g`.
