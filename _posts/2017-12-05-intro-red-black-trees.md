@@ -156,4 +156,27 @@ What if the new node `n` breaks to the right of `p`
 
 ![](/images/rb-tree-insert-7.png)
 
-We've sort of arrived at this point after the first rotation described above, and we can simply skip that rotation, recolor and left rotate at `g`.
+We arrived at this point after the first rotation described above, so we handle this case similarly. We can simply recolor and left rotate at `g`.
+
+If `p` breaks to the left of its parent `g`, we perform the same operations with left and right swapped.
+
+## Challenges
+
+1. Draw out the two sub-cases like we have done above.
+
+2. Get the source code for the `TreeMap.java` Java class. If you are working in an IDE like Eclipse, type `Ctrl+Shift+T` (or `Command+Shift+T` on a Mac) and type `TreeMap`. Then read the method `fixAfterInsertion(Entry<K,V> x)`. Can you see the left-right symmetry that allows us to skip over the second case reflected in the `if-else` statements in this method?
+
+3. How do you get the maximum and minimum entries in a BST?
+
+4. If you have a node in a BST, how do you get its successor? Hint: break it down into two cases, depending on whether a node was added before or after its successor in the tree.
+
+5. Describe in detail how a `TreeMap` object returns its entries in sorted order?
+
+## Summary
+
+I hope you enjoyed this post, and now have a better feeling for how Red-Black trees work behind the scenes for sorted data structures like `TreeMap`. Without the red-black coloring, the irony is that the worst thing you could do to form a sorted data structure is add the elements in order!
+
+## References
+
+* [Robert Sedwick, Left-leaning Red Black Trees](https://www.cs.princeton.edu/~rs/talks/LLRB/LLRB.pdf)
+  The introduction has a great discussion of rotations and recoloring.
