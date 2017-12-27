@@ -56,11 +56,11 @@ Said in terms of logarithms, the height should be somewhere around the logarithm
 
 $$log_{2} (n) \approx h$$
 
-Since the height is the running time of the worst case failed search, in a BST that taking advantage of every new level being added as it grows, this number should be logarithmic in the number of nodes n. If you think in terms of base 10 for a moment, 100 numbers would be fully searchable with at most 2 comparisons, 1000 numbers by 3, 1000000 by 6 etc. Increasing the number of nodes by a factor of 10 only adds 1 additional comparison. In our binary tree, the expectation is that doubling the number of nodes only adds 1 additional comparison. Pretty nice...if the tree is growing in this way. We would expect
+Since the height is the running time of the worst case failed search, in a BST that taking advantage of every new level being added as it grows, this number should be logarithmic in the number of nodes n. If you think in terms of base 10 for a moment, 100 numbers would be fully searchable with at most 2 comparisons, 1000 numbers by 3, 1000000 by 6 etc. Increasing the number of nodes by a factor of 10 only adds 1 additional comparison. In our binary tree, the expectation is that doubling the number of nodes only adds 1 additional comparison. Pretty nice...if the tree is growing in this way. The condition we're after can be expressed by the condition
 
-$$ h <= log_{2} (n) $$
+$$ h \leq C \cdot log_{2} (n) $$
 
-and this is what is meant by a balanced tree. It is the theoretical best way to arrange a BST so that searching takes the optimal number of comparisons.
+for some constant C, and this is what is meant by a *balanced* tree. It is the theoretical best way to arrange a BST so that searching takes the optimal number of comparisons.
 
 As an example of a tree that is not balanced, what if I gave you the list of numbers above in order:
 
