@@ -36,7 +36,9 @@ With the BST, we can decide that 1 is not in the list much quicker by navigating
 
 This only involves 2 comparisons before deciding that 1 is not in the list, much better than checking the entire list which would involve 8 comparisons. Since there is no structure, you have to check every number.
 
-The *height* of a BST is the number of nodes on a longest path, starting from the *root* node (in this case 5), and ending at a *leaf* (the nodes 4, 8, 10, and 13 in this case). This would be the worst number of comparisons that a failed search would involve, and you want this number to be as small as possible. In our tree, searching for say 11 would involve 4 comparisons so our height is 4.
+The *height* (h) of a BST is the number of edges on a longest path, starting from the *root* node (in this case 5), and ending at a *leaf* (the nodes 4, 8, 10, and 13 in this case). In the BST above, the height is 3.
+
+The height is directly related to the largest number of comparisons that a failed search would involve, and you want this number to be as small as possible. In fact the worst case failed search involves h+1 comparisons.
 
 ## Balance
 
@@ -44,13 +46,23 @@ As the number of levels, or height (h) grows in a BST, the number of nodes (n) s
 
 $$n \approx 2^h$$
 
+The exact relation of nodes to height in a perfect binary tree is
+
+$$ n = 2^{h+1} - 1 $$
+
+using a geometric series in base 2, but let's stick with our wavy equals sign for now.
+
 Said in terms of logarithms, the height should be somewhere around the logarithm of the number of nodes
 
 $$log_{2} (n) \approx h$$
 
-Since the height is the running time of the worst case failed search, in a BST that is filling out correctly this number should be logarithmic in the number of nodes. If you think in terms of base 10 for a moment, 100 numbers would be fully searchable with at most 2 comparisons, 1000 numbers by 3, 1000000 by 6 etc. Increasing the number of nodes by a factor of 10 only adds 1 additional comparison. In our binary tree, the expectation is that doubling the number of nodes only adds 1 additional comparison. Pretty nice!
+Since the height is the running time of the worst case failed search, in a BST that taking advantage of every new level being added as it grows, this number should be logarithmic in the number of nodes n. If you think in terms of base 10 for a moment, 100 numbers would be fully searchable with at most 2 comparisons, 1000 numbers by 3, 1000000 by 6 etc. Increasing the number of nodes by a factor of 10 only adds 1 additional comparison. In our binary tree, the expectation is that doubling the number of nodes only adds 1 additional comparison. Pretty nice...if the tree is growing in this way. We would expect
 
-This is what is meant by a balanced tree, and it is the theoretical best way to arrange a BST so that searching takes the optimal number of comparisons. As an example of a tree that is not balanced, what if I gave you the list of numbers above in order:
+$$ h <= log_{2} (n) $$
+
+and this is what is meant by a balanced tree. It is the theoretical best way to arrange a BST so that searching takes the optimal number of comparisons.
+
+As an example of a tree that is not balanced, what if I gave you the list of numbers above in order:
 
 ```
 3, 4, 5, 8, 9, 10, 12, 13
@@ -60,7 +72,7 @@ The tree would look like
 
 ![bst devolved to linked list](/images/bst-linked-list.png)
 
-and this is nothing more than a linked list of numbers in order, which is slightly better than a raw indexed list when there are a large number of nodes.
+and this is nothing more than a linked list of numbers in order, which is slightly better than a raw list when there are a large number of nodes. The worst thing you can do to form a BST which captures the ordering of a list of numbers is to pass the numbers in order!
 
 The problem that a red black tree solves is that it allows a BST to grow in a flexible way, but preserves balance. Each node is colored either red or black, and collapsing the tree to the black nodes actually forms a perfectly balanced binary tree of a certain height. The red nodes represents how the tree can vary from a perfect balanced tree, but this freedom is bounded by the requirement that there are no adjacent red nodes.
 
@@ -106,9 +118,9 @@ Here we have a node `p` and its left child `l`. `l` is rotated up to the parent 
 
 It is easy to see that the rotation operation preserves the comparison relations in the tree
 
-$$A < p \\ l < B < p \\ r < C$$
+$$A < l \\ l < B < p \\ p < C$$
 
-The key thing to note is that a rotation is a local operation at the node `p`. This means it only affects `p` and the nodes below `p`. The rest of the nodes of the tree are left unchanged.
+The key thing to note is that a rotation is a local operation at the node `p`. This means it only affects `p` and the nodes below `p`. The rest of the nodes of the tree are left unchanged, and because the ordering is preserved you still have a binary search tree.
 
 ### Left Rotation
 
