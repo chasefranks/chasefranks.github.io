@@ -220,3 +220,18 @@ table {
   height: 30px;
   margin: 5px;
 }
+
+/*
+ * mostly styling for the basics section
+ */
+a.thumbnail-link {
+  text-decoration: none;
+}
+
+.thumbnail-link:hover {
+  background-color: $light-accent;
+}
+
+img.thumbnail-link {
+  height: 200px;
+}

@@ -20,6 +20,8 @@ collections:
     output: true
   samples:
     output: true
+  basics:
+    output: true
 
 # enable pagination
 gems: [jekyll-paginate, jekyll-gist]
