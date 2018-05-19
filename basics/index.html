@@ -15,92 +15,18 @@ title: Basics
 </div>
 
 <div class="row">
+{% for item in site.basics %}
   <div class="col-sm-6 col-md-4">
-    <a href="/basics/how-junit-works" class="thumbnail-link">
+    <a href="{{ item.url }}" class="thumbnail-link">
       <div class="thumbnail thumbnail-link">
-        <img src="/images/junit-logo.png" alt="..." class="thumbnail-link">
-        <div class="caption">
-          <h3>How JUnit Works</h3>
-          <p>JUnit is one of the most often used tools in Java development, but do you really
-            know how it works? Let's learn by stepping into the code and writing our own JUnit <code>Runner</code>!
-          </p>
-        </div>
-      </div>
-    </a>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <a href="/basics/how-junit-works" class="thumbnail-link">
-      <div class="thumbnail thumbnail-link">
-        <img src="/images/java-icon.png" alt="..." class="thumbnail-link">
-        <div class="caption">
-          <h3>Multithreading in Java</h3>
-          <p>
-            Using multiple threads in Java is easy! Here we break it down to the lowest level, to understand how the JVM creates and manages threads.
-          </p>
-        </div>
-      </div>
-    </a>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <a href="/basics/how-junit-works" class="thumbnail-link">
-      <div class="thumbnail thumbnail-link">
-        <img src="/images/maven.png" alt="..." class="thumbnail-link">
-        <div class="caption">
-          <h3>Write Your Own MOJO</h3>
-          <p>
-            We all probably run <code>mvn clean package</code> at least a 100 times a day,
-            but do you really know what Maven is doing with your code? Let's dive in by writing
-            our own Maven plugin!
-          </p>
-        </div>
-      </div>
-    </a>
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <a href="/basics/how-junit-works" class="thumbnail-link">
-      <div class="thumbnail thumbnail-link">
-        <img src="/images/linux-icon.png" alt="..." class="thumbnail-link">
-        <div class="caption">
-          <h3>Linux Namespaces</h3>
-          <p>
-            Let's talk about Linux namespaces. Did you know that namespaces are the basic building blocks of tools like Docker? Let's write some C code to create our own
-            container runtime.
-          </p>
-        </div>
-      </div>
-    </a>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <a href="/basics/how-junit-works" class="thumbnail-link">
-      <div class="thumbnail thumbnail-link">
-        <img src="/images/java-icon.png" alt="..." class="thumbnail-link">
-        <div class="caption">
-          <h3>The Java Debugger</h3>
-          <p>
-            When you are debugging your code in Eclipse or IntelliJ, do you really
-            understand what is happening at the JVM and with the bytecode?
-          </p>
-        </div>
-      </div>
-    </a>
-  </div>
-
-</div>
-
-<!-- {% for item in site.basics %}
-<div class="row">
-  <div class="col-sm-6 col-md-4">
-    <a href="{{ item.url }}" style="text-decoration: none">
-      <div class="thumbnail thumbnail-link">
-        <img src="{{ item.icon }}" alt="...">
+        <img src="{{ item.icon }}" />
         <div class="caption">
           <h3>{{ item.title }}</h3>
-          <p class="lead">{{ item.intro | markdownify }}</p>
+          <p>{{ item.intro | markdownify }}</p>
         </div>
       </div>
     </a>
   </div>
+{% cycle '', '', '</div><div class="row">' %}
+{% endfor %}
 </div>
-{% endfor %} -->

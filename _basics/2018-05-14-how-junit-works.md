@@ -1,5 +1,4 @@
 ---
-name: basic-1
 title: How JUnit Works
 icon: /images/junit-logo.png
 layout: post
