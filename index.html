@@ -10,7 +10,7 @@ aboutMe: >
     {% for post in paginator.posts %}
 
       <div class="blog-post">
-        <h2 class="blog-post-title">{{ post.title }}</h2>
+        <h2 class="blog-post-title">{{ post.title | markdownify }}</h2>
         <p class="blog-post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
 
         {{ post.intro | markdownify }}
