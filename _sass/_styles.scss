@@ -29,15 +29,30 @@ h6, .h6 {
   color: #333;
 }
 
+/* media queries */
+@media (max-width: 375px) {
+    #header-img {
+        height: 150px;
+        background-position: -300px -325px;
+    }
+}
 
-/*
- * Override Bootstrap's default container.
- */
+@media (max-width: 2100px) {
+    #header-img {
+        background-position: 0 -325px
+    }
+}
 
-@media (min-width: 1200px) {
-  .container {
-    width: 970px;
-  }
+@media(max-width: 2400px) {
+    #header-img {
+        background-position: 0 -400px
+    }
+}
+
+@media(min-width: 2400px) {
+    #header-img {
+        background-position: 0 -500px
+    }
 }
 
 #topnavbar {
@@ -54,11 +69,10 @@ h6, .h6 {
 }
 
 #header-img {
-  height: 175px;
-  background-image: url('/images/driving-banner.jpg');
-  background-repeat: repeat-x;
+  height: 250px;
+  background-image: url('/images/d2c-splash.jpg');
   background-attachment: fixed;
-  background-size: 1500px;
+  background-size: cover;
 }
 
 /*
