@@ -1,7 +1,7 @@
 ---
 layout: default
 aboutMe: >
-  I am a software developer with a strong DevOps focus. I specialize in writing web applications in Java, J2EE and the Spring framework. When I get tired of the verboseness of Java, I love bringing in NodeJS and Javascript to solve problems. I also use AngularJS and am currently making the leap to Angular 2 and Typescript.
+  I am a software developer with a `DevOps` mindset. I specialize in writing web applications in Java and Javascript. When I'm not coding I'm either playing tag with my daughter or playing flamenco guitar.
 ---
 <div class="row">
 
@@ -39,8 +39,14 @@ aboutMe: >
       <h3>About Me</h3>
       <span><img class="img-circle" src="/images/profile.jpg" alt="Chase profile pic" /></span>
       <p>
-        {{ page.aboutMe }}
+        {{ page.aboutMe | markdownify }}
       </p>
+      <h4>Find me</h4>
+      <ol class="list-unstyled">
+        <li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>
+        <li><a href="https://plus.google.com/u/0/+ChaseFranks/posts"><strike>Google+</strike>...RIP</a></li>
+        <li><a href="https://www.linkedin.com/in/chasefranks">LinkedIn</a></li>
+      </ol>
     </div>
     <div class="sidebar-module">
       <!-- nothing to archive yet!
@@ -59,14 +65,6 @@ aboutMe: >
         <li><a href="#">May 2013</a></li>
         <li><a href="#">April 2013</a></li>
       </ol> -->
-    </div>
-    <div class="sidebar-module">
-      <h4>Find me</h4>
-      <ol class="list-unstyled">
-        <li><a href="https://github.com/{{ site.github_username }}">GitHub</a></li>
-        <li><a href="https://plus.google.com/u/0/+ChaseFranks/posts">Google+</a></li>
-        <li><a href="https://www.linkedin.com/in/chasefranks">LinkedIn</a></li>
-      </ol>
     </div>
   </div><!-- /.blog-sidebar -->
 

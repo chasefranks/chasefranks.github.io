@@ -9,7 +9,7 @@
 title: Drive2Code
 email: clf112358@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  A blog about Java, Spring, and being a developer.
+  A blog about being a developer and a human
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://chasefranks.github.io" # the base hostname & protocol for your site
 github_username:  chasefranks
