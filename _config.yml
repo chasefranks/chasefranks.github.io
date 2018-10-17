@@ -24,7 +24,7 @@ collections:
     output: true
 
 # enable pagination
-gems: [jekyll-paginate, jekyll-gist]
+plugins: [jekyll-paginate, jekyll-gist]
 paginate: 5
 
 # Build settings
