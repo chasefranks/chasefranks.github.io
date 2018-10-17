@@ -1,31 +1,19 @@
 /*
- * Globals
- *
+ * Global styling for Drive2Code
  */
 
 /*
- * using color palatte from http://www.w3schools.com/colors/colors_palettes.asp
- * change the values here instead of in each css class
+ * A color palatte inspired from from http://www.w3schools.com/colors/colors_palettes.asp
+ * Try to change the values here instead of in each css class
  */
-$footer-bg-color: #eaece5;
+$footer-bg-color: #3b3a30;
 $dark-accent: #b2c2bf;
 $light-accent: #c0ded9;
 $header-bg-color: #3b3a30;
+$sidebar-bg-color: #3b3a30;
 
 body {
   font-family: Helvetica, "Times New Roman", Times, sans-serif;
-}
-
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-  margin-top: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: normal;
-  color: #333;
 }
 
 /* media queries */
@@ -77,7 +65,6 @@ h6, .h6 {
 /*
  * Masthead for nav
  */
-
 .blog-masthead {
   font-size: 20px;
   background-color: $header-bg-color;
@@ -135,14 +122,11 @@ h6, .h6 {
 }
 .blog-description {
   font-size: 20px;
-  color: #999;
+  color: #999999;
 }
 
 
-/*
- * Main column and sidebar layout
- */
-
+/* Main column and sidebar layout */
 .blog-main {
   font-size: 18px;
   line-height: 1.5;
@@ -152,10 +136,12 @@ h6, .h6 {
 .sidebar-module {
   padding: 15px;
   margin: 0 -15px 15px;
+  color: #999999;
 }
+
 .sidebar-module-inset {
   padding: 20px;
-  background-color: $footer-bg-color;
+  background-color: $sidebar-bg-color;
   border-radius: 8px;
 }
 
@@ -164,6 +150,7 @@ h6, .h6 {
   float: right;
   margin: 5px;
 }
+
 .sidebar-module-inset p:last-child,
 .sidebar-module-inset ul:last-child,
 .sidebar-module-inset ol:last-child {
@@ -225,17 +212,19 @@ table {
   text-align: center;
   background-color: $footer-bg-color;
 }
+
 .blog-footer p:last-child {
   margin-bottom: 0;
   margin-top: 5px;
 }
+
 .blog-footer img, svg {
   height: 30px;
   margin: 5px;
 }
 
 /*
- * mostly styling for the basics section
+ * Styling for the thumbnail links used in /basics
  */
 a.thumbnail-link {
   text-decoration: none;
