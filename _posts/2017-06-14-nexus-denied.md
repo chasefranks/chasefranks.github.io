@@ -3,6 +3,7 @@ layout: post
 title:  "Nexus Denied"
 date:   2017-06-14
 categories: devops silos
+tags: rants
 intro: Read more to find out how my organization denied my right to publish jars today...
 published: true
 ---

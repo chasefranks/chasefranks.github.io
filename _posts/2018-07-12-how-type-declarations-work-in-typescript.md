@@ -3,6 +3,7 @@ layout: post
 title: How `@types` Work in Typescript
 date:   2018-07-12
 categories: javascript typescript
+tags: javascript typescript
 intro: >
  One of the things that's always been sort of a mystery to me is how `@types` work in Typescript. You encounter this when you are working in Typescript, but you want to bring in your favorite library like RxJS or lodash, which are untyped Javascript libraries. Let's unravel the mystery in this post.
 permalink: how-type-declarations-work-in-typescript

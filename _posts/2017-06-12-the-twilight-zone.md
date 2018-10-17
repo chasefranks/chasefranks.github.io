@@ -3,6 +3,7 @@ layout: post
 title:  "Welcome To the Twilight Zone - A Guide for New IT Grads"
 date:   2017-06-12
 categories: ramblings
+tags: rants
 intro: >
   I've started to wonder if I'm going to publish anything worthwhile on this blog. I can't seem to find time to actually write about Java, Spring, and all the cool things I've been discovering with Docker and Kubernetes lately. Oh, well. Give it time, and I'll get to it.
 

@@ -3,6 +3,7 @@ layout: post
 title:  "Git Tip - how to squash commits when merging"
 date:   2016-08-24
 categories: git tips workflow
+tags: tips git
 intro: >
   Have you ever created a private local branch and made a bunch of ridiculous commits that show how much you still have to learn about the way gradle and the world works? Wouldn't it be great if you could merge your private branch back into ```master``` with a single commit, instead of showing all of your silly commits along the way? That's exactly what I'll show you how to do with the `--squash` option.
 published: true

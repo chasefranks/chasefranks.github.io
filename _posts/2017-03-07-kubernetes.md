@@ -3,6 +3,7 @@ layout: post
 title:  "Some ramblings about Kubernetes and DevOps this week"
 date:   2017-03-07
 categories: ramblings kubernetes
+tags: rants devops kubernetes
 intro: >
  I've been working a lot with Kubernetes, and thought I would present some random thoughts and some of the things I've discovered about it. Simply put, Kubernetes is a tool for orchestrating and deploying microservices packaged in containers. Instead of presenting technical content or demos, I just want to share my informal thoughts about Kubernetes, DevOps, and the context I'm working in.
 published: true
