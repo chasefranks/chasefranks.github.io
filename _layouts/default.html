@@ -32,6 +32,25 @@
         $.get("/search.json", function( data ) {
             $("#navbar-search-input").typeahead({
                 source: data,
+                matcher: function( item ) {
+
+                    var normalizedTitle = item.name.toLowerCase();
+                    var searchTerm = this.query.toLowerCase();
+
+                    if ( normalizedTitle.includes(searchTerm) ) {
+                        return true;
+                    }
+
+                    // else do a case insensitive tag search
+                    if (item.tags && item.tags.length > 0) {
+                        for (var i = 0; i < item.tags.length; i++) {
+                            var normalizedTag = item.tags[i].toLowerCase();
+                            if ( normalizedTag.startsWith(searchTerm) )
+                                return true;
+                        }
+                    }
+
+                },
                 displayText: function( item ) {
                     if (item.name.length >= 50) {
                         return item.name.substring(0, 50) + '...';
