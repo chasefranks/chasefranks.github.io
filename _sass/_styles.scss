@@ -55,6 +55,15 @@ body {
   opacity: 0.8;
 }
 
+#navbar-search-input {
+    border: solid 1px grey;
+    width: 320px;
+}
+
+#navbar-search-icon {
+    color: #999999;
+}
+
 #header-img {
   height: 250px;
   background-image: url('/images/d2c-splash.jpg');

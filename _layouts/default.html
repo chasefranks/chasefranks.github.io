@@ -28,6 +28,24 @@
       });
     </script>
 
+    <script type="text/javascript">
+        $.get("/search.json", function( data ) {
+            $("#navbar-search-input").typeahead({
+                source: data,
+                displayText: function( item ) {
+                    if (item.name.length >= 50) {
+                        return item.name.substring(0, 50) + '...';
+                    } else {
+                        return item.name;
+                    }
+                },
+                afterSelect: function(selected) {
+                    window.location = selected.url;
+                }
+             });
+        }, 'json');
+    </script>
+
   </body>
 
 </html>
