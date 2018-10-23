@@ -2,7 +2,7 @@
 layout: post
 title:  "Welcome to Jekyll!"
 date:   2016-07-20 16:32:54 -0500
-categories: jekyll update
+tags: [ jekyll ]
 intro: Read to get an introduction to Jekyll and how this blog works...
 published: false
 ---

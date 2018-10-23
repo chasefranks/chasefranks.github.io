@@ -2,8 +2,7 @@
 layout: post
 title:  "Quickstart with Bower"
 date:   2016-12-16
-categories: quickstart
-tags: [ quickstart, nodejs, npm, bower, grunt ]
+tags: [ quickstart, nodejs, npm, bower, grunt, web ]
 permalink: quickstart-bower
 intro: >
   Web developers have a littany of tools available to them from the node ecosystem. Bower is a repository and command line tool for pulling in static assets like Javascript libraries and CSS frameworks.

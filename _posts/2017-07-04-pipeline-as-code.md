@@ -2,7 +2,6 @@
 layout: post
 title:  "Pipeline As Code"
 date:   2017-07-04
-categories: devops jenkins
 tags: devops jenkins
 intro: >
   Happy 4th of July! This weekend I finally got up and running with Jenkins [pipeline](https://jenkins.io/doc/book/pipeline/). In this post, I'll show how I managed to convert my existing freestyle job to a Jenkins pipeline job. I'll also discuss why I was interested in doing this to begin with, and my thoughts on the project so far.

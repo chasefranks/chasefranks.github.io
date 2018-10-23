@@ -2,7 +2,7 @@
 layout: post
 title:  "Work Update"
 date:   2017-07-28
-categories: work
+tags: [ update ]
 intro: >
   I'm probably wrapping up one of the most stressful and disappointing work assignments I've ever had in the work force. I'd like to document what my experience has been this past year in the hopes that those finding themselves in similar situations can find some comfort that they are not alone.
 published: true

@@ -5,4 +5,12 @@
   {{ post.intro | markdownify }}
 
   <a href="{{ post.url }}">Read More...</a>
+  {% if post.tags.size > 0 %}
+  <div class="tag-section">
+      <strong>Tags:</strong>
+      {% for tag in post.tags %}
+      <a href="/by_tag/{{ tag }}.html"><span class="label label-default tag-label">{{ tag }}</span></a>
+      {% endfor %}
+  </div>
+  {% endif %}
 </div><!-- /.blog-post -->

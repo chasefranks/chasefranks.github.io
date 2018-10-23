@@ -2,7 +2,7 @@
 layout: post
 title:  "Deploying GlusterFS in Kubernetes as a Dynamic Storage Provisioner - Part 2"
 date:   2017-06-25
-categories: kubernetes storage kvm
+tags: [ kubernetes, linux, kvm ]
 intro: >
  Part 2 of a three part blog series showing how to set up GlusterFS in Kubernetes and create a StorageClass to dynamically provision storage for Kubernetes pods. In this post, we'll really get into the deployment by hopefully having a working GlusterFS cluster deployed as a Kubernetes DaemonSet.
 published: true

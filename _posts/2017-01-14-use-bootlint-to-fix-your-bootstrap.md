@@ -2,7 +2,6 @@
 layout: post
 title:  "Use bootlint To Fix Your Bootstrap"
 date:   2017-01-14
-categories: bootstrap
 tags: [ bootstrap, css, html ]
 intro: >
    As this blog progresses, the time is probably ripe for me to fix some css errors that have cropped up. I'm not real happy with my recent addition of the Bootstrap ```affix``` plugin to make my nav bar stick to the top. Also, the new banner image I've added doesn't have the responsive behavior I want. I started trying to clean up the code, and stumbled on a tool called [bootlint](https://github.com/twbs/bootlint) through the power of Google.

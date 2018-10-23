@@ -190,7 +190,11 @@ body {
 
 .tag-label:hover {
    background-color: $light-accent;
-   color: black; 
+   color: black;
+}
+
+.tag-section {
+    margin-top: 20px;
 }
 
 /* Styling for tables */

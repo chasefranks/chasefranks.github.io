@@ -36,3 +36,7 @@ highlighter: rouge
 kramdown:
   input: GFM
   syntax_highlighter: rouge
+
+# exclude files from site
+exclude:
+    - scripts

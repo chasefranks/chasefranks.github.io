@@ -2,7 +2,7 @@
 layout: post
 title:  "A Quick Tour of the Elasticsearch Java Client"
 date:   2017-10-23
-categories: elasticsearch java
+tags: [ java, elasticsearch ]
 intro: >
   In this post, we will use Elasticsearch and the Java client to build a small application that lets us search a catalogue of books.
 published: false

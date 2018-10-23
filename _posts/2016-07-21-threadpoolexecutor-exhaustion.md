@@ -2,7 +2,7 @@
 layout: post
 title:  "A ThreadPoolExecutor Gotcha"
 date:   2016-07-21
-categories: Spring Spring-Integration ThreadPoolExecutor
+tags: [ spring, java ]
 intro: >
   I recently wrote a service that utilized a `@ServiceActivator` and `ThreadPoolExecutor` to poll a Redis queue for
   tasks. I ran into an interesting error (interesting to me at least), and would like to share what I learned here

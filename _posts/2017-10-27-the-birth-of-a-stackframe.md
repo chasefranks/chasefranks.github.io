@@ -2,8 +2,7 @@
 layout: post
 title:  "The Birth of a Stack Frame, or How Methods Are Invoked"
 date:   2017-10-27
-categories: java jvm
-tags: java jvm
+tags: [ java, jvm ]
 intro: >
   In this post, we look at how the Java Virtual Machine (JVM) invokes a method by creating a stack frame.
 published: true

@@ -2,8 +2,7 @@
 layout: post
 title:  "Introduction to Red-Black Trees"
 date:   2017/12/05
-categories: algorithms trees
-tags: java algorithms trees red-black
+tags: [ java, algorithms, trees, red-black ]
 intro: >
   In this post, we introduce red-black trees. These are a class of binary search trees that are known as balanced trees, and are useful in a variety of applications, for example the `TreeMap` class in Java. We show how the height of a red black tree is bounded by the logarithm of the number of nodes, and demonstrate how to insert a new node into a red black tree.
 published: true

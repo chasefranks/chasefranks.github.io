@@ -2,7 +2,7 @@
 layout: post
 title:  "The Fallacy of the Team in Software Development"
 date:   2017-08-23
-categories: ramblings devops
+tags: [ rants ]
 intro: >
   Most people imagine software developers working on teams struggling into the night to meet looming deadlines. Usually some type of pizza is involved. I find this picture funny because it is not that way at all. It's unfortunate, because pizza is delicious.
 
