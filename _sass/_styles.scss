@@ -188,6 +188,11 @@ body {
   margin-right: 5px;
 }
 
+.tag-label:hover {
+   background-color: $light-accent;
+   color: black; 
+}
+
 /* Styling for tables */
 table {
   @extend .table, .table-striped;

@@ -8,16 +8,7 @@ aboutMe: >
   <div class="col-sm-8 blog-main">
 
     {% for post in paginator.posts %}
-
-      <div class="blog-post">
-        <h2 class="blog-post-title">{{ post.title | markdownify }}</h2>
-        <p class="blog-post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
-
-        {{ post.intro | markdownify }}
-
-        <a href="{{ post.url }}">Read More...</a>
-      </div><!-- /.blog-post -->
-
+      {% include post-preview.html %}
     {% endfor %}
 
     <!-- add pager -->
@@ -47,6 +38,12 @@ aboutMe: >
         <li><a href="https://plus.google.com/u/0/+ChaseFranks/posts"><strike>Google+</strike>...RIP</a></li>
         <li><a href="https://www.linkedin.com/in/chasefranks">LinkedIn</a></li>
       </ol>
+    </div>
+    <div class="sidebar-module">
+        <h4>Tags:</h4>
+        {% for tag in site.tags %}
+        <a href="/by_tag/{{ tag[0] }}.html"><span class="label label-default tag-label">{{ tag[0] }}</span></a>
+        {% endfor %}
     </div>
     <div class="sidebar-module">
       <!-- nothing to archive yet!

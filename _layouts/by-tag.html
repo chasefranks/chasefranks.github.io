@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<h2>Posts about {{ page.tagKey }}</h2>
+
+{% for tag in site.tags %}
+  {% if tag[0] == page.tagKey %}
+      {% for post in tag[1] %}
+        {% include post-preview.html%}
+      {% endfor %}
+  {% endif %}
+{% endfor %}

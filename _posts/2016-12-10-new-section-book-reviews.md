@@ -2,7 +2,8 @@
 layout: post
 title:  "Book Reviews"
 date:   2016-12-10
-categories: new update
+categories: update
+tags: [ update ]
 intro: >
   I just released a new section of this blog for book reviews.
   [Check it out](/books)!

@@ -3,6 +3,7 @@ layout: post
 title:  "Intro to Docker Networking"
 date:   2016-10-22
 categories: docker
+tags: [ docker, devops ]
 intro: >
   In this post, we'll use a basic REST application with a Mongodb backend to demonstrate how Docker networking works.
 published: false

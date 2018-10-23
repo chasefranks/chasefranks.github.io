@@ -27,17 +27,17 @@ bundle exec jekyll build
 bundle exec jekyll serve
 ```
 
-```bundle install``` - uses the Ruby gem [*bundler*](http://bundler.io/rationale.html) to install the dependencies listed in Gemfile.
+`bundle install` - uses the Ruby gem [*bundler*](http://bundler.io/rationale.html) to install the dependencies listed in Gemfile.
 
-```jekyll build``` - builds the site
+`jekyll build` - builds the site
 
-```jekyll serve``` - launches a web server to preview your changes locally. You should be able to see your site by launching a browser and going to http://localhost:4000.
+`jekyll serve` - launches a web server to preview your changes locally. You should be able to see your site by launching a browser and going to http://localhost:4000.
 
-**Note:** these commands are executed with through ```bundle exec``` to manage Ruby dependencies through the Gemfile.
+**Note:** these commands are executed with through `bundle exec` to manage Ruby dependencies through the Gemfile.
 
 ### Adding Posts
 
-Adding blog posts is simple. In the _posts/ folder, you will see the posts I have created. Just copy the yyyy-mm-dd-new-post.md, change the date to the post date, set ```published: true```, add your content, and voila! the post should magically appear.
+Adding blog posts is simple. In the `_posts` folder, you will see the posts I have created. Just copy the yyyy-mm-dd-new-post.md, change the date to the post date, set `published: true`, add your content, and voila! the post should magically appear.
 
 ## Contact
 

@@ -22,6 +22,8 @@ collections:
     output: true
   basics:
     output: true
+  by_tag:
+    output: true
 
 # enable pagination
 plugins: [jekyll-paginate, jekyll-gist]

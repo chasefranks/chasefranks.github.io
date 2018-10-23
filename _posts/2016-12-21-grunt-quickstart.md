@@ -2,7 +2,8 @@
 layout: post
 title:  "Quickstart with Grunt"
 date:   2016-12-21
-categories: quickstart node bower grunt
+categories: quickstart
+tags: [ quickstart, nodejs, grunt ]
 intro: >
   In a previous [post](/quickstart-bower) we looked at getting a basic website up and running
   with bower. In this post, we continue our series by looking at [Grunt](http://gruntjs.com/), which is
