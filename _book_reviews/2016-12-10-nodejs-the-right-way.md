@@ -10,6 +10,7 @@ intro: >
 image-url: https://images-na.ssl-images-amazon.com/images/I/51wP%2B%2BgnRTL._SX415_BO1,204,203,200_.jpg
 published: true
 permalink: /books/reviews/nodejs-the-right-way
+disqus_id: nodejs-the-right-way
 ---
 # Intro
 

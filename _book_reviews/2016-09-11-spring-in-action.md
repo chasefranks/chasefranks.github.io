@@ -10,5 +10,6 @@ intro: >
 image-url: https://images-na.ssl-images-amazon.com/images/I/51gHy16h5TL._SX397_BO1,204,203,200_.jpg
 published: false
 permalink: /books/reviews/spring-in-action
+disqus_id: spring-in-action
 ---
 {{page.intro}}

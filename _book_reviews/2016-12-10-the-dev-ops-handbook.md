@@ -16,6 +16,7 @@ intro: >
 image-url: https://images-na.ssl-images-amazon.com/images/I/51GspNFDWIL.jpg
 published: true
 permalink: /books/reviews/devops-handbook
+disqus_id: devops-handbook
 ---
 # Intro
 

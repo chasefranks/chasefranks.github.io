@@ -6,6 +6,7 @@ tags: [ angular, html, web ]
 intro: >
   In this post, we demo how to perform basic drag and drop in an Angular 2 application using
   the [ng2-dragula](https://github.com/valor-software/ng2-dragula) module.
+disqus_id: drag-drop-angular2
 published: true
 ---
 {{page.intro}}

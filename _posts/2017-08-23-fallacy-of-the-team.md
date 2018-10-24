@@ -8,6 +8,7 @@ intro: >
 
   As an undergraduate engineering major, I heard over and over how important the 'team' was,
   and almost every class I took was immediately organized into teams, to an almost ridiculous degree. In this post, I would like to offer my experience in the work place as a different point of view. What I've found is that it's just not the case that you will be working on a team at all.
+disqus_id: fallacy-of-team
 published: true
 ---
 {{page.intro}}

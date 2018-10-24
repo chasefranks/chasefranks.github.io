@@ -7,6 +7,7 @@ intro: >
   In this post, I show how to deploy an Angular2 application built with the `ng` CLI tool
   into Kubernetes from a Jenkins pipeline job. I encountered a few minor hiccups along the way,
   and hopefully the pitfalls I discuss here will help you with your own projects.
+disqus_id: deploy-angular2-to-kubernetes
 published: true
 ---
 {{page.intro}}

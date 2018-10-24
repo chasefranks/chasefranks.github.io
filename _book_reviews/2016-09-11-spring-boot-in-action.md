@@ -9,5 +9,6 @@ intro: >
 image-url: https://images-na.ssl-images-amazon.com/images/I/51XDLVLQOOL._SX396_BO1,204,203,200_.jpg
 published: false
 permalink: /books/reviews/spring-boot-in-action
+disqus_id: spring-boot-in-action
 ---
 {{page.intro}}

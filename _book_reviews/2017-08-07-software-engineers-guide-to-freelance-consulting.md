@@ -9,6 +9,7 @@ intro: >
 image-url: https://images-na.ssl-images-amazon.com/images/I/51du6pgqoZL._SX331_BO1,204,203,200_.jpg
 published: false
 permalink: /books/reviews/freelance-consulting
+disqus_id: freelance-consulting
 ---
 # Intro
 

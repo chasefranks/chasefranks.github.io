@@ -9,6 +9,7 @@ intro: >
 image-url: https://images-na.ssl-images-amazon.com/images/I/516nsV9hmsL._SX327_BO1,204,203,200_.jpg
 published: true
 permalink: /books/reviews/reactive-java-programming
+disqus_id: reactive-java
 ---
 # Intro
 

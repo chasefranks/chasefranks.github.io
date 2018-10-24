@@ -6,6 +6,7 @@ tags: rants
 intro: >
   My first blog post of the year is on the thrilling topic of meetings. This has been a long time coming. At most of the places I've worked, I have observed time and time again, people's time used and abused through meetings that ramble on and on and seem to go nowhere. I would like to make a case against these meetings and discuss *why* they go wrong. Maybe through these observations, better ways of interacting with people can be discovered.
 published: true
+disqus_id: case-against-meetings
 ---
 {{page.intro}}
 

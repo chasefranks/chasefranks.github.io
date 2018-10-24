@@ -5,6 +5,7 @@ date:   2017-10-27
 tags: [ java, jvm ]
 intro: >
   In this post, we look at how the Java Virtual Machine (JVM) invokes a method by creating a stack frame.
+disqus_id: jvm-method-invoke
 published: true
 ---
 {{page.intro}}

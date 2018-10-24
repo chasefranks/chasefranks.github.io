@@ -9,6 +9,7 @@ intro: >
 image-url: https://images-na.ssl-images-amazon.com/images/I/41A-D5UDB%2BL._SX382_BO1,204,203,200_.jpg
 published: true
 permalink: /books/reviews/build-apis-you-wont-hate
+disqus_id: build-apis-you-wont-hate
 ---
 {{page.intro}}
 

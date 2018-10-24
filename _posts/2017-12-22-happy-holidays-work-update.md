@@ -6,6 +6,7 @@ tags: update
 intro: >
   I don't know how many readers I have out there, but I want to wish everyone happy holidays! I also wanted to post an update on my job hunting endeavors and my plans for the new year.
 published: true
+disqus_id: holiday-update
 ---
 {{page.intro}}
 

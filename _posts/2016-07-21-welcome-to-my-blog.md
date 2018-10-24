@@ -5,7 +5,7 @@ date:   2016-07-21
 tags: [ personal ]
 intro: Hi and welcome! You've found my blog where I will write about about my awesome endeavors as a Java developer.
 published: true
-disquis_id: my-welcome
+disqus_id: welcome
 ---
 {{page.intro}}
 

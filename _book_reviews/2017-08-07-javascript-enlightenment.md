@@ -9,6 +9,7 @@ intro: >
 image-url: https://images-na.ssl-images-amazon.com/images/I/41pZo24FNvL._SX377_BO1,204,203,200_.jpg
 published: true
 permalink: /books/reviews/javascript_enlightenment
+disqus_id: javascript-enlightenment
 ---
 # Intro
 

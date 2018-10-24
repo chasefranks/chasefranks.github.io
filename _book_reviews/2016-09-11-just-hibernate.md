@@ -12,6 +12,7 @@ intro: >
 image-url: https://images-na.ssl-images-amazon.com/images/I/51thXe9K4EL._SX379_BO1,204,203,200_.jpg
 published: false
 permalink: /books/reviews/just-hibernate
+disqus_id: just-hibernate
 ---
 {{page.intro}}
 
