@@ -16,28 +16,28 @@ intro: >
 
 If you just want to jump ahead and see the complete example, the source code for this tutorial is hosted on [Github](https://github.com/chasefranks/bower_grunt_demo.git). Just clone the repository and checkout the first commit
 
-{% highlight bash %}
+```bash
 git clone https://github.com/chasefranks/bower_grunt_demo.git
 cd bower_grunt_demo
 git checkout 5675cfc
-{% endhighlight %}
+```
 
 ## A Simple Example
 
 Let's start with a simple example to see what Bower does. First, you need NodeJS on your system, so head on over to [nodejs.org](https://nodejs.org) and install the version of node for the platform you're using. I'm on Linux, but it really shouldn't matter. To check that it's installed, run ```node --version```. On my system, I get
 
-{% highlight bash %}
+```
 node --version
 v6.9.2
-{% endhighlight %}
+```
 
 With NodeJS comes the Node Package Manager (npm), which is used to install node modules. We'll use it to install Bower
 
-{% highlight bash %}
+```
 npm install -g bower
-{% endhighlight %}
+```
 
-Check that Bower is installed by running ```bower --version```. The latest version as of this writing is 1.8.0.
+Check that Bower is installed by running `bower --version`. The latest version as of this writing is 1.8.0.
 
 Ok, now let's get to the fun part. I want to build a site that shows off charts from a library called [Chart.js](http://www.chartjs.org). I know that I will then need the following static assets:
 
@@ -47,15 +47,15 @@ Ok, now let's get to the fun part. I want to build a site that shows off charts 
 
 Let's create a directory to work in
 
-{% highlight bash %}
+```
 mkdir -p ~/bower_example && cd ~/bower_example
-{% endhighlight %}
+```
 
 Then we use bower to install everything we need for our project. First we initialize our project with Bower by running
 
-{% highlight bash %}
+```
 bower init
-{% endhighlight %}
+```
 
 just accepting the default answers to the questions it asks.
 
@@ -63,13 +63,13 @@ Notice that this creates a file called bower.json that will be used to record th
 
 Now we install what we need with
 
-{% highlight bash %}
+```
 bower install --save jquery bootstrap chart.js
-{% endhighlight %}
+```
 
 The ```--save``` option saves the dependencies to the bower.json file:
 
-{% highlight json %}
+```json
 {
   "name": "bower_example",
   "authors": [
@@ -92,14 +92,14 @@ The ```--save``` option saves the dependencies to the bower.json file:
     "chart.js": "^2.4.0"
   }
 }
-{% endhighlight %}
+```
 
 The assets are downloaded to the ```bower_components``` folder in the project directory
 
-{% highlight bash %}
+```
 ls bower_components/
 bootstrap  chart.js  jquery
-{% endhighlight %}
+```
 
 Before Bower, we would generally have to go to each project site for Bootstrap, JQuery, and Chart.js, and download each library separately or get the link to the CDN. Now with Bower, we can get everything we need into our web projects from the command line. Nice!
 
@@ -109,13 +109,13 @@ Check out [Bower](https://bower.io/search/) to discover more Bower packages.
 
 Now let's create an index.html
 
-{% highlight bash %}
+```
 touch index.html
-{% endhighlight %}
+```
 
 and let's just start a basic html template for now.
 
-{% highlight html %}
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -131,16 +131,16 @@ and let's just start a basic html template for now.
 
   </body>
 </html>
-{% endhighlight %}
+```
 
-Notice the bootstrap, jquery, and chart.js assets are linked in with the usual ```<link>``` and ```<script>``` tags. That's it, no magic here!
+Notice the bootstrap, jquery, and chart.js assets are linked in with the usual `<link>` and `<script>` tags. That's it, no magic here!
 
-You should be asking: what if we add more bower components, or remove ones we're not using anymore? Do I have to manage the links in each page? Won't this get tedious? Later, we'll see how to use Grunt to wire these in automatically. Grunt has a task called ```wiredeps``` that does exactly this. The idea is that you control the dependencies and their versions from the bower.json file, and ```grunt wiredeps``` inserts all of the script and link tags for javascript and css for you. All you have to do is insert placeholder comments into your html for the css and js to be linked in.
+You should be asking: what if we add more bower components, or remove ones we're not using anymore? Do I have to manage the links in each page? Won't this get tedious? Later, we'll see how to use Grunt to wire these in automatically. Grunt has a task called `wiredeps` that does exactly this. The idea is that you control the dependencies and their versions from the bower.json file, and ```grunt wiredeps``` inserts all of the script and link tags for javascript and css for you. All you have to do is insert placeholder comments into your html for the css and js to be linked in.
 
 ## Our Finished site
 To show that the css and javascript is linked to our page, insert the following html as the body of our page
 
-{% highlight html %}
+```html
 <body style="padding-top: 30px">
 
   <div class="container">
@@ -264,13 +264,13 @@ To show that the css and javascript is linked to our page, insert the following 
   </script>
 
 </body>
-{% endhighlight %}
+```
 
 As a last step, we need to serve our page from a local web server. NodeJS has module called *http-server* that can serve a website from any directory. Install it with
 
-{% highlight bash %}
+```
 npm install -g http-server
-{% endhighlight %}
+```
 
 and start it from the project directory by invoking ```http-server```. This will start the server on port 8080 and serve our index.html. The end result should look like this:
 

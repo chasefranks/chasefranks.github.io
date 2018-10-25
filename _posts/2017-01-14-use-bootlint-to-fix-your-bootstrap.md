@@ -18,15 +18,15 @@ published: true
 
 bootlint is available as a node [module](https://www.npmjs.com/package/bootlint), and is easily installed using npm. For this tutorial, we'll just install the command line tool as a global module
 
-{% highlight bash %}
+```
 npm install -g bootlint
-{% endhighlight %}
+```
 
 # Running bootlint
 
 Like most tools that are awesome, bootlint accepts input from stdin, so we can just pipe the output from ```curl```ing this blog's url right into the tool, just like this...
 
-{% highlight bash %}
+```
 curl http://localhost:4000 | bootlint
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -47,7 +47,7 @@ curl http://localhost:4000 | bootlint
 
 For details, look up the lint problem IDs in the Bootlint wiki: https://github.com/twbs/bootlint/wiki
 13 lint error(s) found across 1 file(s).
-{% endhighlight %}
+```
 
 In this example, I'm running my blog on localhost port 4000 using ```jekyll serve```, but you could just as well fetch the page directly from Github pages with ```curl https://chasefranks.github.io```.
 
@@ -64,7 +64,7 @@ You can see bootlint found two types of errors, E004, E013, and a warning, W012.
 
 Taking a look at the source being generated, bootlint is spot on. There's a problem somewhere between where my main content starts (line 59)
 
-{% highlight html %}
+```html
 ...
 <div class="container">
 
@@ -74,11 +74,11 @@ Taking a look at the source being generated, bootlint is spot on. There's a prob
 </p>
       </div>
 ...
-{% endhighlight %}
+```
 
 and where my footer begins (line 188)
 
-{% highlight html %}
+```html
 ...
 
     </div><!-- /.container -->
@@ -87,11 +87,11 @@ and where my footer begins (line 188)
   <div class="row">
     <div class="col-sm-4">
 ...
-{% endhighlight %}
+```
 
 In short ,the bootstrap ```.container``` and ```.container-fluid``` classes don't nest.  In the Bootstrap grid system, the intended hierarchy of container, row, and column classes looks something like
 
-{% highlight html %}
+```html
 <div class="container">
   <div class="row">
     <div class="col-md-6">
@@ -111,15 +111,15 @@ In short ,the bootstrap ```.container``` and ```.container-fluid``` classes don'
   </div>
   ...
 </div>
-{% endhighlight %}
+```
 
 This explains the second error, for example line 30
 
-{% highlight html %}
+```html
 <div class="row">
   <div id="header-img"/>
 </div>
-{% endhighlight %}
+```
 
 shows that my banner image div is a child of row that is not a ```.col-*-*```.
 

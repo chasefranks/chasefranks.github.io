@@ -29,13 +29,8 @@ collections:
 plugins: [jekyll-paginate, jekyll-gist]
 paginate: 5
 
-# Build settings
-markdown: kramdown
-highlighter: rouge
-
 kramdown:
   input: GFM
-  syntax_highlighter: rouge
 
 # exclude files from site
 exclude:
