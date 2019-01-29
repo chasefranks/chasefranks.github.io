@@ -4,6 +4,7 @@ title:  NodeJS Web Development 4th Edition
 author: David Herring
 date:   2019-01-23
 categories: review
+image-url: https://images-na.ssl-images-amazon.com/images/I/51rG0yX9D7L._SX404_BO1,204,203,200_.jpg
 intro: >
   David Herring's book is a great and opinionated introduction to NodeJS. He takes you through developing an entire notes web application with Express and MongoDB, but along the way you are introduced to the microservice methodology as well as different databases and tools. I found the book to be a great read, and would recommend it to anyone wanting to get up and running with writing web applications in Express with Handlebar templates, and taking it to production.
 permalink: /books/reviews/nodejs-web-development
